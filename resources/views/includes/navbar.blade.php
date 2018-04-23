@@ -1,13 +1,17 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 	<div class="container">
-		<a class="navbar-brand" href="/">IUTLib</a>
+		<a class="navbar-brand" href="/">{{ config('appname', 'IUTLib') }}</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
 	    	<span class="navbar-toggler-icon"></span>
 	  	</button>
+
 	  	<div class="collapse navbar-collapse" id="collapsibleNavbar">
 			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-				<li class="nav-item"><a class="nav-link" 	href="/about">About</a></li>
+				<li class="nav-item"><a class="nav-link" href="/"><i class="fas fa-home"></i> Home</a></li>
+                <li class="nav-item"><a class="nav-link"    href="#"><i class="fas fa-angle-double-down"></i> Catalogue</a></li>
+                <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-book"></i> Text Books</a></li>
+                <li class="nav-item"><a class="nav-link" href="#"><i class="fab fa-connectdevelop"></i> Interesting Facts</a></li>
+				<li class="nav-item"><a class="nav-link" href="/about"><i class="fas fa-users"></i> About</a></li>
 			</ul>
 			<!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">

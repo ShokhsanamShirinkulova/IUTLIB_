@@ -35,10 +35,10 @@ class RegisterController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('guest');
+    // }
 
     /**
      * Get a validator for an incoming registration request.
@@ -53,8 +53,8 @@ class RegisterController extends Controller
               'firstName' => 'required|string|max:255',
               'lastName' => 'required|string|max:255',
               'userType' => 'required|integer',
-              'dob' => 'required',
-              'registeredDate' => 'required',
+              'dob' => 'required|date|after:' . date('1988-01-01'),
+              'registeredDate' => 'required|date|after: ' . date('2014-09-01') . '|before:tomorrow',
               'phoneNumber' => 'required|string|max:255',
               'email' => 'required|email|max:255|unique:users',
               'password' => 'required|confirmed|min:6'

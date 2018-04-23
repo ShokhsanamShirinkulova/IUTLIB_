@@ -3,5 +3,4 @@ Library Management System(LMS) For Inha University in Tashkent
 
 ------
 
-I finished with login page and database of users, but I got some problems with registeration page. But Anyway I will fix this soon
-
+As I promised I fixed registration page and we can move to dividing our project to user side and librarian side.

@@ -10,7 +10,6 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
-
                         <div class="form-group row">
                             <label for="userID" class="col-md-4 col-form-label text-md-right">{{ __('User ID') }}</label>
 
@@ -38,7 +37,6 @@
                                 @endif
                             </div>
                         </div>
-
                         <div class="form-group row">
                             <label for="lastName" class="col-md-4 col-form-label text-md-right">{{ __('Last Name') }}</label>
 
@@ -53,16 +51,20 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+
+                       <div class="form-group row">
                             <label for="userType" class="col-md-4 col-form-label text-md-right">{{ __('User Type') }}</label>
 
                             <div class="col-md-6">
-                                <select id="userType" class="form-control{{ $errors->has('userType') ? ' is-invalid' : '' }}" name="userType">
-                                    <option value="0" selected="">Student</option>
+                                {{-- <input id="userType" type="text" class="form-control{{ $errors->has('userType') ? ' is-invalid' : '' }}" name="userType" value="{{ old('userType') }}" required autofocus> --}}
+                                <select id="userType" type="text" class="form-control{{ $errors->has('userType') ? ' is-invalid' : '' }}" name="userType">
+                                    <option value="0" selected="selected">Student</option>
                                     <option value="1">Teacher</option>
                                     <option value="2">Librarian</option>
-                                </select>   
+                                </select>
 
+                                    
+                                </section>
                                 @if ($errors->has('userType'))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first('userType') }}</strong>
@@ -71,8 +73,9 @@
                             </div>
                         </div>
 
+                        
                         <div class="form-group row">
-                            <label for="dob" class="col-md-4 col-form-label text-md-right">{{ __('Birth Date') }}</label>
+                            <label for="dob" class="col-md-4 col-form-label text-md-right">{{ __('Date of Birth') }}</label>
 
                             <div class="col-md-6">
                                 <input id="dob" type="date" class="form-control{{ $errors->has('dob') ? ' is-invalid' : '' }}" name="dob" value="{{ old('dob') }}" required autofocus>
@@ -103,7 +106,7 @@
                             <label for="phoneNumber" class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>
 
                             <div class="col-md-6">
-                                <input id="phoneNumber" type="text" class="form-control{{ $errors->has('phoneNumber') ? ' is-invalid' : '' }}" name="phoneNumber" value="{{ old('phoneNumber') }}" required autofocus>
+                                <input id="phoneNumber" type="text" class="form-control{{ $errors->has('phoneNumber') ? ' is-invalid' : '' }}" name="phoneNumber" value="{{ old('phoneNumber') }}" required>
 
                                 @if ($errors->has('phoneNumber'))
                                     <span class="invalid-feedback">

@@ -12,10 +12,10 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="userID" class="col-sm-4 col-form-label text-md-right">{{ __('User ID') }}</label>
+                            <label for="userID" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="userID" type="text" class="form-control{{ $errors->has('userID') ? ' is-invalid' : '' }}" name="userID" value="{{ old('userID') }}" placeholder="u1******" required autofocus>
+                                <input id="userID" type="text" class="form-control{{ $errors->has('userID') ? ' is-invalid' : '' }}" name="userID" value="{{ old('userID') }}" required autofocus>
 
                                 @if ($errors->has('userID'))
                                     <span class="invalid-feedback">

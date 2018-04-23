@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/dashboard';
+    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -47,19 +47,19 @@ class RegisterController extends Controller
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'UserID' => 'required|string|max:255',
-            'firstName' => 'required|string|max:255',
-            'lastName' => 'required|string|max:255',
-            'userType' => 'required',
-            'dob' => 'required', 
-            'registeredDate' => 'required', 
-            'phoneNumber' => 'required', 
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-        ]);
-    }
+        {
+            return Validator::make($data, [
+              'userID' => 'required|string|unique:users',
+              'firstName' => 'required|string|max:255',
+              'lastName' => 'required|string|max:255',
+              'userType' => 'required|integer',
+              'dob' => 'required',
+              'registeredDate' => 'required',
+              'phoneNumber' => 'required|string|max:255',
+              'email' => 'required|email|max:255|unique:users',
+              'password' => 'required|confirmed|min:6'
+            ]);
+        }
 
     /**
      * Create a new user instance after a valid registration.
@@ -69,16 +69,16 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'UserID' => $data['lastName'],
-            'firstName' => $data['firstName'],
-            'lastName' => $data['lastName'],
-            'userType' => $data['userType'],
-            'dob' => $data['dob'],
-            'registeredDate' => $data['registeredDate'],
-            'phoneNumber' => $data['phoneNumber'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+      return User::create([
+        'userID' => $data['userID'],
+        'firstName' => $data['firstName'],
+        'lastName' => $data['lastName'],
+        'userType' => $data['userType'],
+        'dob' => $data['dob'],
+        'registeredDate' => $data['registeredDate'],
+        'phoneNumber' => $data['phoneNumber'],
+        'email' => $data['email'],
+        'password' => bcrypt($data['password'])
+      ]);
     }
 }

@@ -22,10 +22,14 @@
 </head>
 <body>
     <div id="app">
-        @include('includes.navbar');
+        @include('includes.navbar')
         <div class="container">
             @yield('content')
         </div>
     </div>
+    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace( 'article-ckeditor' );
+    </script>
 </body>
 </html>

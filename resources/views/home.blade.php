@@ -16,7 +16,6 @@
                     <h1>Welcome, Our Dear 
                     @if(Auth::user()->userType == 0) 
                         Student
-                        }
                     @elseif(Auth::user()->userType == 1) 
                         Teacher
                     @elseif(Auth::user()->userType == 2)

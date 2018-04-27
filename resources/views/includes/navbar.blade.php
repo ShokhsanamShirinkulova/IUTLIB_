@@ -20,7 +20,8 @@
                             <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                         @else
                             @if(Auth::user()->userType == 2)
-                                <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                                <li><a class="nav-link" href="/books">{{ __('Books') }}</a></li>
+                                <li><a class="nav-link" href="/members">{{ __('Members') }}</a></li>
                             @endif
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

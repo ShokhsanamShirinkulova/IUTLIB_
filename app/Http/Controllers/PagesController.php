@@ -3,6 +3,7 @@
 namespace IUTLib\Http\Controllers;
 
 use Illuminate\Http\Request;
+use IUTLib\Book;
 
 class PagesController extends Controller
 {
@@ -14,5 +15,10 @@ class PagesController extends Controller
     public function about()
     {
         return view('pages.about');
+    }
+    public function catalog()
+    {
+    	$books = Book::all();
+        return view('pages.catalog')->with('books', $books);
     }
 }

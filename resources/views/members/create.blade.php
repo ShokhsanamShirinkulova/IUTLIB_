@@ -1,8 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-        <div class="container">
-        <h1>Add A Member</h1>
+        <div class="MyForm container">
+        
+            <div class="card">
+                <div class="card-header">{{ __('Add A Member') }}</div>
+
+                <div class="card-body">
         	{!! Form::open(['action' => 'MembersController@store', 'method' => 'POST' ])!!}
 		    <div class="form-group">
 		    	{{ Form::label('userID', 'User ID')}}
@@ -22,11 +26,11 @@
 		    </div>
 		    <div class="form-group">
 		    	<p>{{ Form::label('dob', 'Date Of Birth')}}</p>
-		    	{{Form::date('dob')}}
+		    	{{Form::date('dob','', ['class' => 'form-control'])}}
 		    </div>
 		    <div class="form-group">
 		    	<p>{{ Form::label('registeredDate', 'Registered Date')}}</p>
-		    	{{Form::date('registeredDate')}}
+		    	{{Form::date('registeredDate','', ['class' => 'form-control'])}}
 		    </div>
 		    <div class="form-group">
 		    	{{ Form::label('phoneNumber', 'Phone Number')}}
@@ -47,4 +51,6 @@
 		   	{{ Form::submit('Add', ['class' => 'btn btn-primary'])}}
 			{!! Form::close() !!}
 		</div>
+	</div>
+</div>
 @endsection

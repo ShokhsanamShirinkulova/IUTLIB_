@@ -13,6 +13,7 @@
 
 Route::get('/', 'PagesController@index');
 Route::get('/about', 'PagesController@about');
+Route::get('/catalog', 'PagesController@catalog');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('Home');

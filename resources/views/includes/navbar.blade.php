@@ -26,10 +26,9 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="/"><i class="fas fa-home"></i> Home</a></li>
-                    <li class="nav-item"><a class="nav-link"    href="/catalog"><i class="fas fa-angle-double-down"></i> Catalogue</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-book"></i> Text Books</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#"><i class="fab fa-connectdevelop"></i> Interesting Facts</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/about"><i class="fas fa-users"></i> About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/catalog"> Catalogue</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"> Text Books</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/about"> About</a></li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     @guest

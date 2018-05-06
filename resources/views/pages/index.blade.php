@@ -121,10 +121,6 @@
   		</div>
   		</div>
   	</footer>
-  						  		@foreach($books as $book)
-								  	<a href=""><h4>{{$book->bookName}}</h4></a>
-								@endforeach
-	
   
   <script type="text/javascript" src="{{asset('js/index.js')}}"></script>
   <!-- parallax js -->

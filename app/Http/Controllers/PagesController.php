@@ -2,6 +2,7 @@
 
 namespace IUTLib\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use IUTLib\Book;
 

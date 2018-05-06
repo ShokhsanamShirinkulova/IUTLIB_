@@ -33,12 +33,16 @@
 		    	{{Form::hidden('email', $member->email)}}
 		    </div>
 		    <div class="form-group">
+		    	{{ Form::label('current_password', 'Current Password')}}
+		    	{{Form::password('current_password', ['class' => 'form-control', 'placeholder' => 'Current Password'] )}}
+		    </div>
+		    <div class="form-group">
 		    	{{ Form::label('password', 'New Password')}}
 		    	{{Form::password('password', ['class' => 'form-control', 'placeholder' => 'Password'] )}}
 		    </div>
 		    <div class="form-group">
-		    	{{ Form::label('password_confirmation', 'Comfirm Password')}}
-		    	{{Form::password('password_confirmation', ['class' => 'form-control', 'placeholder' => 'Comfirm Password'] )}}
+		    	{{ Form::label('password_confirmation', 'Confirm Password')}}
+		    	{{Form::password('password_confirmation', ['class' => 'form-control', 'placeholder' => 'Confirm Password'] )}}
 		    </div>
 		   	{{ Form::submit('Change', ['class' => 'btn btn-primary'])}}
 			{!! Form::close() !!}

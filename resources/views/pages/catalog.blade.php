@@ -6,7 +6,7 @@
   <!--filter bar-->
   <div class="col-md-3">
     <div class="sidebar">
-      <h4 class="sidebar-title">Selection of books</h4>
+      <h3 class="sidebar-title">Selection of books</h3>
       <form action="">
         <label for=""><span>Search:</span><input type="text" name="bookSearch" /></label>
         <label for="">
@@ -66,12 +66,12 @@
                 <div class="col-md-10">
                   <div class="row">
                     <div class="col-md-8">
-                      <h4 class="book-title">
+                      <h3 class="book-title">
                         <a href="">{{$book->bookName}}</a>
-                      </h4>
-                      <h5 class="book-author">
+                      </h3>
+                      <h4 class="book-author">
                         <a href="#">{{$book->bookAuthor}}</a>
-                      </h5>
+                      </h4>
                       <p class="book-description">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum vitae tempora officiis reprehenderit expedita iure in praesentium voluptatum ipsam nulla cumque, hic odio enim, corrupti neque recusandae nam. Distinctio, rerum. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim omnis dignissimos perspiciatis exercitationem. Vel ex, aliquid. Excepturi temporibus corporis, ad maxime tenetur laborum est fugiat quam! Corporis tempora, fugit deleniti.
                       </p>
@@ -80,13 +80,13 @@
           
                       <div class="col-md-4">
                         <div class="book-info">
-                          <h6 style="margin-bottom: 15px;">Overall Rating: {{($book->bookRank/5)*100}}% <span class="glyphicon glyphicon-star"></span></h6>
-                          <h6>Genre: <a href="#">{{$book->genre}}</a></h6>
-                          <h6>Country: {{$book->country}}</h6>
-                          <h6>Language: {{$book->language}}</h6>
-                          <h6>Published: {{$book->publishedYear}}</h6>
-                          <h6>Pages: </h6>
-                          <h6>ISBN: {{$book->isbn}}</h6>
+                          <h5 style="margin-bottom: 15px;">Overall Rating: {{($book->bookRank/5)*100}}% <span class="glyphicon glyphicon-star"></span></h5>
+                          <h5>Genre: <a href="#">{{$book->genre}}</a></h5>
+                          <h5>Country: {{$book->country}}</h5>
+                          <h5>Language: {{$book->language}}</h5>
+                          <h5>Published: {{$book->publishedYear}}</h5>
+                          <h5>Pages: </h5>
+                          <h5>ISBN: {{$book->isbn}}</h5>
                         </div>
                       </div>
                     </div>

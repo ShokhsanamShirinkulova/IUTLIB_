@@ -1,5 +1,4 @@
 html,body{
-	font-size: 0.875rem;
 	width: 100%;
 	height: 100%;
 	margin: 0;
@@ -11,6 +10,12 @@ html,body{
 h1,h2,h3,h4,h5,h6{
 	cursor: context-menu;
 }
+h1{font-size: 36px;}
+h2{font-size: 30px;}
+h3{font-size: 24px;}
+h4{font-size: 18px;}
+h5{font-size: 14px;}
+h6{font-size: 12px;}
 header{
 	width: 100%;
 	height: 100px;
@@ -355,7 +360,7 @@ footer p{
 	margin: 20px 0 25px 0;
 	text-align: center;
 	padding: 10px;
-	width: 35%;
+	width: 30%;
 	position: relative;
 	left: 50%;
 	transform: translateX(-50%);
@@ -529,8 +534,8 @@ footer p{
 	box-shadow: 0 5px 10px #424242; 
 	text-align: center;
 }
-.sidebar h4.sidebar-title{
-	padding: 10px;
+.sidebar h3.sidebar-title{
+	padding: 20px 10px 5px 10px;
 }
 .sidebar label{
 	display: grid;
@@ -599,7 +604,6 @@ footer p{
 	left: 50%;
 	margin: 0 auto;
 	transform: translateX(-50%);
-	padding: 20px 50px;
 }
 #slider {
   height: 10px;
@@ -666,6 +670,7 @@ footer p{
 	transform: translateX(-50%);
 }
 .tooltip {
+	cursor: context-menu;
   position: relative;
   display: inline-block;
   opacity: 1;
@@ -752,8 +757,8 @@ footer p{
 
 input[type=date]::-webkit-inner-spin-button,
 input[type=date]::-webkit-calendar-picker-indicator {
-    display: none;
-    -webkit-appearance: none;
+  display: none;
+  -webkit-appearance: none;
 }
 /* personal information style */
 .personalInfoBlock .card-header h4{

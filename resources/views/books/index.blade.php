@@ -16,6 +16,7 @@
 			<div class="row">
                 <table class="table table-striped">
                     <tr>
+                    	<th>Cover Page</th>
                         <th>Book ID</th>
                         <th>Book Type</th>
                         <th>Book Name</th>
@@ -31,19 +32,11 @@
                     </tr>
 					@foreach($books as $book)
                         <tr>
+                        	<td style="width:10%"><img style="width:100%" src="/storage/cover_images/{{$book->cover_image}}" alt="cover_image"></td>
                             <td>{{$book->bookID}}</td>
                             <td>{{$book->bookType}}</td>
                             <td>{{$book->bookName}}</td>
                             <td>{{$book->bookAuthor}}</td>
-                        	<!-- <td>
-                        				                    @if($book->bookType == 0) 
-                        				                        Student
-                        				                    @elseif($book->bookType == 1) 
-                        				                        Teacher
-                        				                    @elseif($book->bookType == 2)
-                        				                        Librarian
-                        				                    @endif 
-                        	</td> -->
                             <td>{{$book->publishedYear}}</td>
                             <td>{{$book->bookRank}}</td>
 					        @if(!Auth::guest())

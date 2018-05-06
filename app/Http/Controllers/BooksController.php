@@ -3,6 +3,7 @@
 namespace IUTLib\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use IUTLib\Book;
 
 class BooksController extends Controller
@@ -22,7 +23,7 @@ class BooksController extends Controller
          if (auth()->user()->userType != 2) {
             return redirect('/home')->with('error', 'Unauthorized Page');
         }
-        $books = Book::orderBy('bookID', 'asc' /*'desc'*/)->paginate(10);
+        $books = Book::orderBy('bookID', 'desc' /*'asc'*/)->paginate(10);
         return view('books.index')->with('books', $books);
     }
 
@@ -57,9 +58,36 @@ class BooksController extends Controller
             'bookType' => 'required|string',
             'publishedYear' => 'required|date|after:' . date('1988-01-01'),
             'bookRank' => 'required|between:0,99.99',
-           /* 'attachedFile' => '',
-            'cover_image' => ''*/
+            /*'describtion'=>'required|string|min:255',*/
+            'isbn'=>'required|integer',
+            'country'=>'required|string',
+            'language'=>'required|string|nullable',
+            'genre'=>'required|string|nullable',
+            'attachedFile' => 'required|file|nullable',
+            'cover_image' => 'required|image|mimes:jpg,jpeg,bmp,png|max:1999'
         ]);
+
+        if ($request->hasFile('cover_image')) {
+          $imageNameWithExt=$request->file('cover_image')->getClientOriginalName();
+          $imageName=pathinfo($imageNameWithExt, PATHINFO_FILENAME);
+          $extension=$request->file('cover_image')->getClientOriginalExtension();
+          $imageNameStore=$imageName.'_'.time().'.'.$extension;
+          $path=$request->file('cover_image')->storeAs('public/cover_images', $imageNameStore);
+        }
+        else{
+            return redirect('/home')->with('error', 'Cover_Image');
+        }
+
+         if ($request->hasFile('attachedFile')) {
+          $fileNameWithExt=$request->file('attachedFile')->getClientOriginalName();
+          $fileName=pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+          $extension=$request->file('attachedFile')->getClientOriginalExtension();
+          $fileNameStore=$fileName.'_'.time().'.'.$extension;
+          $path=$request->file('attachedFile')->storeAs('public/attached_files', $fileNameStore);
+        }
+        else{
+            return redirect('/home')->with('error', 'AttachedFile');
+        }
 
         $book = new Book;
         $book->bookID = $request->input('bookID');
@@ -68,9 +96,14 @@ class BooksController extends Controller
         $book->bookType = $request->input('bookType');
         $book->publishedYear = $request->input('publishedYear');
         $book->bookRank = $request->input('bookRank');
-        /*$book->attachedFile = $request->input('attachedFile');
-        $book->cover_image = $request->input('cover_image');
-*/        $book->save(); 
+        /*$book->describtion = $request->input('describtion');*/
+        $book->isbn = $request->input('isbn');
+        $book->country = $request->input('country');
+        $book->language = $request->input('language');       
+        $book->genre = $request->input('genre');       
+        $book->cover_image = $imageNameStore;
+        $book->attachedFile = $fileNameStore;
+        $book->save(); 
         return redirect('/books')->with('success', 'A book added');
     }
 
@@ -123,18 +156,49 @@ class BooksController extends Controller
             'bookType' => 'required|string',
             'publishedYear' => 'required|date|after:' . date('1988-01-01'),
             'bookRank' => 'required|between:0,99.99',
-           /* 'attachedFile' => '',
-            'cover_image' => ''*/
+            /*'describtion'=>'required|string|min:255',*/
+            'isbn'=>'required|integer',
+            'country'=>'required|string',
+            'language'=>'required|string|nullable',
+            'genre'=>'required|string|nullable',
+            'attachedFile' => 'required|file|nullable',
+            'cover_image' => 'image|nullable|max:1999'
         ]);
+
+        if ($request->hasFile('cover_image')) {
+            Storage::delete('public/cover_images/'.$book->cover_image);
+          $imageNameWithExt=$request->file('cover_image')->getClientOriginalName();
+          $imageName=pathinfo($imageNameWithExt, PATHINFO_FILENAME);
+          $extension=$request->file('cover_image')->getClientOriginalExtension();
+          $imageNameStore=$imageName.'_'.time().'.'.$extension;
+          $path=$request->file('cover_image')->storeAs('public/cover_images', $imageNameStore);
+        }
+
+        if ($request->hasFile('attachedFile')) {
+            Storage::delete('public/attached_files/'.$book->attachedFile);
+          $fileNameWithExt=$request->file('attachedFile')->getClientOriginalName();
+          $fileName=pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+          $extension=$request->file('attachedFile')->getClientOriginalExtension();
+          $fileNameStore=$fileName.'_'.time().'.'.$extension;
+          $path=$request->file('attachedFile')->storeAs('public/attached_files', $fileNameStore);
+        }
 
         $book->bookID = $request->input('bookID');
         $book->bookName = $request->input('bookName');
         $book->bookAuthor = $request->input('bookAuthor');
         $book->bookType = $request->input('bookType');
         $book->publishedYear = $request->input('publishedYear');
-        // $book->registeredDate = $request->input('registeredDate');
-        /*$book->attachedFile = $request->input('attachedFile');
-        $book->cover_image = $request->input('cover_image');*/
+       /* $book->describtion = $request->input('describtion');*/
+        $book->isbn = $request->input('isbn');
+        $book->country = $request->input('country');
+        $book->language = $request->input('language'); 
+        $book->genre = $request->input('genre'); 
+        if ($request->hasFile('cover_image')) {
+          $book->cover_image = $imageNameStore;  
+        }
+        if ($request->hasFile('attachedFile')) {
+          $book->attachedFile = $fileNameStore;  
+        }
         $book->save(); 
         return redirect('/books')->with('success', 'This Book\'s Data Changed');
     }
@@ -153,6 +217,8 @@ class BooksController extends Controller
         if (auth()->user()->userType != 2) {
             return redirect('/home')->with('error', 'Unauthorized Page');
         }
+        Storage::delete('public/cover_images/'.$book->cover_image);
+        Storage::delete('public/attached_files/'.$book->attachedFile);
         $book->delete();
         return redirect('/books')->with('success', 'Book Removed');
     }

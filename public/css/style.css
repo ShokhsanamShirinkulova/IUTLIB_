@@ -515,6 +515,7 @@ footer p{
 }
 /* ---------------------------------------------------------------- */
 /*	catalog style */
+/*	catalog style */
 .sidebar{
 	width: 100%;
 	height: 100%;
@@ -581,6 +582,50 @@ footer p{
 .sorting-box .sorting-box-list li a:hover{
 	color: #0065B3;
 }
+
+/* range slider style */
+.yearRange{
+	position: relative;
+	width: 100%;
+	text-align: center;
+}
+.yearRange h3{
+	text-align: center;
+	position: relative;
+	left: 50%;
+	margin: 0 auto;
+	transform: translateX(-50%);
+	padding: 20px 50px;
+}
+#slider {
+  height: 10px;
+  width: 70%;
+  left: 50%;
+  position: relative;
+  transform: translateX(-50%);
+}
+.ui-slider-handle:after {
+  display: block;
+  position: absolute;
+  left: 100%;
+  content: attr(data-content);
+}
+.yearRange div.yearR{
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100%;
+	padding: 30px 0;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
+	background: #0065B3;
+	outline: none;
+}
+.ui-widget-header{
+	background: lightblue;
+}
+/* end of range slider style */
+
 .bookItem-box{
 	margin: 10px 0;
 	padding: 15px;

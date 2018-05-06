@@ -15,6 +15,34 @@
     },1000);
   };
 
+var $amount = $('#amount'),
+    $min = $('.min'),
+    $max = $('.max'),
+    $min_input = $('#min'),
+    $max_input = $('#max'),
+    $slider = $('#slider').slider({
+  orientation: 'horizontal',
+  animate: "fast",
+  range: true,
+  min: 1800,
+  max: 2018,
+  values: [ 1800, 2018 ],
+  slide: function(event, ui) {
+    adjust(ui.values[0], ui.values[1]);
+  }
+});
+function adjust(min, max) {
+  $min.html(min);
+  $max.html(max);
+  $min_input.val(min);
+  $max_input.val(max);
+  // $slider.find('.ui-slider-handle:first-of-type').attr('data-content',min);
+  // $slider.find('.ui-slider-handle:last-of-type').attr('data-content',max);
+}
+var min = $slider.slider('values', 0);
+var max = $slider.slider('values', 1);
+adjust(min, max);
+
 
 
 

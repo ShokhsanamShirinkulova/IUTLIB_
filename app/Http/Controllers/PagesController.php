@@ -10,8 +10,9 @@ class PagesController extends Controller
 {
     public function index()
     {
-        $books = Book::orderBy('bookID', 'desc')->paginate(10);
-        return view('pages.index')->with('books', $books);
+        $pbooks = Book::where('bookRank', '>', 2.50)->take(10)->get();
+        $rbooks = Book::orderBy('created_at', 'desc')->take(4)->get();
+        return view('pages.index')->with('pbooks', $pbooks)->with('rbooks', $rbooks);
     }
 
     public function about()

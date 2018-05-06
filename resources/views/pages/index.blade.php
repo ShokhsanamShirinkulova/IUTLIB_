@@ -5,13 +5,14 @@
 	  <div class="container main">
 	  	<div class="row">
 	    	<h1 class="popularTitle">Most popular books</h1>
-	  	  <div class="first-section">
+	  	  {{-- <div class="first-section"> --}}
 			  	<div class="parallax">
+
 				   <div class="owl-carousel">
-						@foreach($books as $book)
+						@foreach($pbooks as $pbook)
 						  <div class="item">
-						  	<a href=""><h4>{{$book->bookName}}</h4></a>
-						   	<img src="/storage/cover_images/{{$book->cover_image}}" alt="{{$book->bookName}}">
+						  	<a href=""><h4>{{$pbook->bookName}}</h4></a>
+						   	<img src="/storage/cover_images/{{$pbook->cover_image}}" alt="{{$pbook->bookName}}">
 						  </div>
 					  @endforeach
 					</div>
@@ -22,7 +23,7 @@
 						</div>
 					</div>
 			  	</div>
-	  	  </div>
+	  	  {{-- </div> --}}
 	  	</div>
 	    <div class="description">
 	  	  <div class="row">
@@ -41,24 +42,14 @@
 	  	  <div class="recently-added">
     	  	<h1>Recently added</h1>
     	  	<div class="row">
+    	  		@foreach($rbooks as $rbook)
 		    	  <div class="col-md-3">
-		    	  	<img src="/storage/cover_images	/book1_1524911271.jpg" alt="book1">
-		    	  	<a href="#"><h2>book name</h2></a>
+		    	  	<img src="/storage/cover_images/{{ $rbook->cover_image }}" alt="book1">
+		    	  	<a href="#"><h2>{{ $rbook->bookName }}</h2></a>
 		    	  </div>
-		    	  <div class="col-md-3">
-		    	  	<img src="/storage/cover_images/book10_1524925664.jpg" alt="book2">
-		    	  	<a href=""><h2>book name</h2></a>
-		    	  </div>
-		    	  <div class="col-md-3">
-		    	  	<img src="/storage/cover_images/book1_1524911271.jpg" alt="book3">
-		    	  	<a href=""><h2>book name</h2></a>
-		    	  </div>
-		    	  <div class="col-md-3">
-		    	  	<img src="/storage/cover_images/book10_1524925664.jpg" alt="book4">
-		    	  	<a href=""><h2>book name</h2></a>
-		    	  </div>
-		  	  </div>
-	  	  </div>
+		    	@endforeach
+		  	 </div>
+	  	 </div>
 	  	</div>
 	  	<div class="more">
 	  	  <div class="row">
@@ -173,7 +164,7 @@
 	            items:5
 	        },
 	        1000:{
-	            items:3
+	            items: 10
 	        }
 	    }
 	});

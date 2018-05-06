@@ -98,6 +98,7 @@
                                                     <h5>Published: {{$book->publishedYear}}</h5>
                                                     <h5>Pages: </h5>
                                                     <h5>ISBN: {{$book->isbn}}</h5>
+                                                    <a href="/storage/attached_files/{{$book->attachedFile}}" download="{{$book->attachedFile}}">Download {{$book->bookName}}</a>
                                                 </div>
                                             </div>
                                         </div>

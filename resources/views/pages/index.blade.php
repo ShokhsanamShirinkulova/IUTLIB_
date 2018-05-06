@@ -100,6 +100,7 @@
 	  		</div>
 	  		</div> 
 	</div>
+<<<<<<< HEAD
   <footer>
   		<div class="row">
   		  <div class="col-md-4"><p><i class="far fa-copyright"></i> 2018 INHA UNIVERSITY IN TASHKENT</p></div>

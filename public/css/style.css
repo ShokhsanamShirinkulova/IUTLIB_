@@ -93,7 +93,10 @@ header form input{
 	background: #0065B3;
 	color: #fff;
 }
-.item{
+/*.owl-carousel .owl-stage{
+	width: 100%!important;
+}*/
+.owl-carousel .item{
 	margin-top: 20px;
 	background: #00bcd4;
 	height: 150px;
@@ -101,13 +104,13 @@ header form input{
 	border: 2px solid #00BCD4;
 	position: relative;
 }
-.item img{
+.owl-carousel .item img{
 	width: 100%;
 	height: 100%;
 	position: relative;
 	z-index: 1;
 }
-.item a{
+.owl-carousel .item a{
 	opacity: 0;
 	background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7));
 	position: absolute;
@@ -117,7 +120,7 @@ header form input{
 	color: white;
 	text-decoration: none;
 }
-.item h4{
+.owl-carousel .item h4{
 	position: absolute;
 	text-align: center;
 	top: 50%;
@@ -125,7 +128,7 @@ header form input{
 	width: 100%;
 	transform: translate(-50%, -50%);
 }
-.item a:hover{
+.owl-carousel .item a:hover{
 	opacity: 1;
 	transition: all .35s;
 	color: #fff;
@@ -146,6 +149,8 @@ header form input{
 	box-shadow: 0 5px 10px #424242;
 }
 .parallax{
+	overflow: hidden;
+	width: 100%;
 	border-radius: 5px;
 	margin: 15px;
 	background: linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,0.8)), url(../img/parallax.jpg);
@@ -186,6 +191,7 @@ header form input{
 	padding: 15px;
 }
 .recently-added{
+	width: 100%;
 	padding: 15px;
 }
 .recently-added h1{
@@ -201,7 +207,7 @@ header form input{
 }
 .recently-added img{
 	width: 100%;
-	height: 400px;
+	height: 100%;
 }
 .recently-added h2{
 	opacity: 0;
@@ -209,8 +215,7 @@ header form input{
 	color: #fff;
 	height: 100%;
 	position: absolute;
-	top: 45%;
-	padding: 200px 0;
+	top: 50%;
 	text-align: center; 
 	background: rgba(0,0,0,0.7);
 	transform: translateY(-50%);
@@ -266,32 +271,29 @@ header form input{
 	position: relative;
 	margin-top: -5px;
 }
-.info
-{
+.info{
 	width:100%;
-	height: 100%;
 	padding: 50px 15px;
+	font-size: 14px;
 }
-.info .col-md-3 p
-{
+.info .col-md-3 p{
 	border-left: 4px solid #0065B3;
 	padding: 5px;
 	font-size: 14px;
 }
 .info tr td:first-child{
+	font-size: 14px;
 	text-align: right;
 	vertical-align: top;
 	padding: 0 10px;
 }
-footer
-{
+footer{
 	background: #0065B3; 
 	width:100%;
 	padding: 20px;
 	color: #fff;
 }
-footer ul li
-{
+footer ul li{
 	display: inline;
 }
 footer p{
@@ -310,7 +312,6 @@ footer p{
     vertical-align: top;
     margin-top: 11px;
 }
-
 .ShareThisPage ul {
     display: inline-flex;
     margin: 0;
@@ -325,22 +326,18 @@ footer p{
 .ShareThisPage .soc_icon_fb a {
     background: url(../img/social_icons2.png) 0 0px
 }
-
 .ShareThisPage .soc_icon_tw a {
     background: url(../img/social_icons2.png) -36px 0px
 }
-
 .ShareThisPage .soc_icon_gP a {
     background: url(../img/social_icons2.png) -72px 0px
 }
 .ShareThisPage .soc_icon_in a {
     background: url(../img/social_icons2.png) -108px 0px
 }
-
 .ShareThisPage .soc_icon_yt a {
     background: url(../img/social_icons2.png) -144px 0px
 }
-
 .ShareThisPage .soc_icon_lkl a {
     background: url(../img/social_icons2.png) -180px 0px
 }

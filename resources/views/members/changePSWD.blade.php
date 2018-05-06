@@ -7,7 +7,7 @@
                 <div class="card-header">{{ __('Change Password') }}</div>
 
                 <div class="card-body">
-        	{!! Form::open(['action' => ['MembersController@update',$member->id], 'method' => 'POST' ])!!}
+        	{!! Form::open(['action' => ['PasswordsController@update', $member->id], 'method' => 'PATCH' ])!!}
 		    <div class="form-group">
 		    	{{ Form::hidden('userID', $member->userID)}}
 		    </div>
@@ -24,7 +24,7 @@
 		    	{{Form::hidden('dob', $member->dob)}}
 		    </div>
 		    <div class="form-group">
-		    	{{Form::hidden('registeredDate',$member->registeredDate)}}
+		    	{{Form::hidden('registeredDate', $member->registeredDate)}}
 		    </div>
 		    <div class="form-group">
 		    	{{ Form::hidden('phoneNumber', $member->phoneNumber)}}
@@ -33,7 +33,7 @@
 		    	{{Form::hidden('email', $member->email)}}
 		    </div>
 		    <div class="form-group">
-		    	{{ Form::label('password', 'Password')}}
+		    	{{ Form::label('password', 'New Password')}}
 		    	{{Form::password('password', ['class' => 'form-control', 'placeholder' => 'Password'] )}}
 		    </div>
 		    <div class="form-group">

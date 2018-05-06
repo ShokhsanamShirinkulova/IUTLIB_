@@ -15,30 +15,29 @@
     </header>
 </div>
 
+<div class="row">
     <nav class="navbar navbar-expand-sm second-nav">
         <div class="container">
             <a class="navbar-brand" href="/">{{ config('appname', 'IUTLib') }}</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                <i class="fas fa-bars" style="color: white"></i>
+                <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="/"><i class="fas fa-home"></i> Home</a></li>
-                    <li class="nav-item"><a class="nav-link"    href="/catalog"> Catalog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#"> Text Books</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/about"> About</a></li>
+                    <li class="nav-item"><a class="nav-link"    href="/catalog"><i class="fas fa-angle-double-down"></i> Catalogue</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-book"></i> Text Books</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"><i class="fab fa-connectdevelop"></i> Interesting Facts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/about"><i class="fas fa-users"></i> About</a></li>
                 </ul>
-                <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
-                    <!-- Authentication Links -->
                     @guest
-                        <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                        {{-- <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li> --}}
+                        <li><a class="nav-link" href="{{ route('login') }}">{{ ('Login') }}</a></li>
                     @else
                         @if(Auth::user()->userType == 2)
-                            <li><a class="nav-link" href="/books">{{ __('Books') }}</a></li>
-                            <li><a class="nav-link" href="/members">{{ __('Members') }}</a></li>
+                            <li><a class="nav-link" href="/books">{{ ('Books') }}</a></li>
+                            <li><a class="nav-link" href="/members">{{ ('Members') }}</a></li>
                         @endif
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -46,9 +45,9 @@
                             </a>
 
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/home">{{ __('Dashboard') }}</a>
-                                <a class="dropdown-item" href="/personalinfo">{{ __('Personal Information') }}</a>
-                                <a class="dropdown-item" href="/changepswd/{{Auth()->user('id')}}">{{ __('Change Password') }}</a>
+                                <a class="dropdown-item" href="/home">{{ ('Dashboard') }}</a>
+                                <a class="dropdown-item" href="/personalinfo">{{ ('Personal Info') }}</a>
+                                <a class="dropdown-item" href="/passwords/{{ Auth::user()->id }}/edit">{{ ('Change Password') }}</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
@@ -65,3 +64,4 @@
             </div>
         </div>
     </nav>
+</div>

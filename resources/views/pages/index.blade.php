@@ -126,7 +126,7 @@
 								@endforeach
 	
   
-	<script type="text/javascript" src="{{asset('js/index.js')}}"></script>
+  <script type="text/javascript" src="{{asset('js/index.js')}}"></script>
   <!-- parallax js -->
   <script type="text/javascript">
    $(window).scroll(function () {

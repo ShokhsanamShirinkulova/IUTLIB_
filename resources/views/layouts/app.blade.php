@@ -48,7 +48,7 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
-  <div id="hellopreloader"><div id="hellopreloader_preload"></div></div>
+  <!-- <div id="hellopreloader"><div id="hellopreloader_preload"></div></div> -->
     <div id="app">
         @include('includes.navbar')
         <br>

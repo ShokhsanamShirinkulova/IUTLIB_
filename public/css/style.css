@@ -63,6 +63,9 @@ header form input{
 .navbar-brand{
 	color: #fff;
 }
+.navbar-brand:hover{
+	color: #fff;
+}
 .navbar-toggle{
 	border: 1px solid #fff;
 }
@@ -80,11 +83,15 @@ header form input{
 .navbar-default .navbar-nav>li>a{
 	color: #424242;
 }
-.nav>li>a:hover{
+.navbar-expand-sm .navbar-nav .nav-link:hover{
 	background: none;
 	transition: all .35s;
 	color: #00BCD4;
 	text-shadow: 0 0 5px #212121;
+}
+.dropdown-item:focus, .dropdown-item:hover{
+	background: #0065B3;
+	color: #fff;
 }
 .item{
 	margin-top: 20px;
@@ -745,6 +752,32 @@ input[type=date]::-webkit-calendar-picker-indicator {
     display: none;
     -webkit-appearance: none;
 }
+/* personal information style */
+.personalInfoBlock .card-header h4{
+	margin: 0;
+}
+.personalInfoBlock .table td, .table th{
+	padding: 7px;
+	border:none;
+}
+.personalInfoBlock .table tr{
+	padding: 0 20px;
+}
+.personalInfoBlock .table td:first-child{
+	font-weight: bold;
+}
+.personalInfoBlock hr{
+	border-color: #0065B3;
+}
+.greetingMessage{
+	text-align: center;
+	text-transform: uppercase;
+	text-shadow: 4px 2px 2px #bbb;
+}
+.greetingMessage span{
+	color: #0065B3
+}
+/* end of personal information style */
 
 /*::-webkit-scrollbar {
 	display: none;

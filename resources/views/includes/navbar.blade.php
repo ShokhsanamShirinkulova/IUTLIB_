@@ -26,10 +26,9 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="/"><i class="fas fa-home"></i> Home</a></li>
-                    <li class="nav-item"><a class="nav-link"    href="/catalog"><i class="fas fa-angle-double-down"></i> Catalogue</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-book"></i> Text Books</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#"><i class="fab fa-connectdevelop"></i> Interesting Facts</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/about"><i class="fas fa-users"></i> About</a></li>
+                    <li class="nav-item"><a class="nav-link"    href="/catalog"> Catalog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"> Text Books</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/about"> About</a></li>
                 </ul>
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
@@ -49,6 +48,8 @@
 
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="/home">{{ __('Dashboard') }}</a>
+                                <a class="dropdown-item" href="/personalinfo">{{ __('Personal Information') }}</a>
+                                <a class="dropdown-item" href="/changepswd/{{Auth()->user('id')}}">{{ __('Change Password') }}</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">

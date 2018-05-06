@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Http\Request;
+use IUTLib\Member;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,5 +19,17 @@ Route::get('/catalog', 'PagesController@catalog');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('Home');
+Route::get('/personalinfo', function(){
+	return view('personalInfo');
+});
 Route::resource('members', 'MembersController');
+Route::get('/changepswd', function($id){
+        $member = Member::find($id);
+
+        // Check fo correct user id
+        if (auth()->user()->id != $member->id) {
+            return redirect('/home')->with('error', 'Unauthorized Page');
+        }
+        return view('members.changePassword')->with('member', $member);
+    });
 Route::resource('books', 'BooksController');

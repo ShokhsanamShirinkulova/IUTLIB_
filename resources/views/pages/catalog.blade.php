@@ -73,9 +73,9 @@
                         <a href="#">{{$book->bookAuthor}}</a>
                       </h4>
                       <p class="book-description">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum vitae tempora officiis reprehenderit expedita iure in praesentium voluptatum ipsam nulla cumque, hic odio enim, corrupti neque recusandae nam. Distinctio, rerum. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim omnis dignissimos perspiciatis exercitationem. Vel ex, aliquid. Excepturi temporibus corporis, ad maxime tenetur laborum est fugiat quam! Corporis tempora, fugit deleniti.
+                        {{ $book->describtion }}
                       </p>
-                      <a href="">more...</a>
+                      <a href="#">more...</a>
                     </div>
           
                       <div class="col-md-4">

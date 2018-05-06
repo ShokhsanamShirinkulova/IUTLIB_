@@ -26,7 +26,7 @@ class PagesController extends Controller
     }*/
     public function catalog()
     {
-    	$books = Book::orderBy('bookID', 'desc' /*'asc'*/)->paginate(2);
+    	$books = Book::orderBy('bookID', 'desc' /*'asc'*/)->paginate(10);
         return view('pages.catalog')->with(['books' => $books, 'controller' => $this]);
     }
 }

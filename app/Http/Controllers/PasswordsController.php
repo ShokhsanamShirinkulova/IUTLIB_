@@ -2,6 +2,7 @@
 
 namespace IUTLib\Http\Controllers;
 
+use Hash;
 use IUTLib\Member;
 use Illuminate\Http\Request;
 
@@ -87,8 +88,13 @@ class PasswordsController extends Controller
             'registeredDate' => 'required|date|after: ' . date('2014-09-01') . '|before:tomorrow',
             'phoneNumber' => 'required|string|max:255',
             'email' => 'required|email|max:255'.($member->email == $request->input('email')?'':'|unique:users'),
+            'current_password' => 'required|min:6',
             'password' => 'required|confirmed|min:6',
         ]);
+        if(!Hash::check($request->input('current_password'), auth()->user()->password))
+        {
+                return redirect('/passwords/'.$id.'/edit')->with('error', 'Wrong Current Password');
+        }
         $member->userID = $request->input('userID');
         $member->firstName = $request->input('firstName');
         $member->lastName = $request->input('lastName');

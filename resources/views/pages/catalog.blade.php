@@ -113,6 +113,8 @@
           </div>
         </div>
         @endforeach
+      </div>
+      <div class="paginateCatalog">
         {{ $books->links() }}
       </div>
       <!-- end of book items section -->

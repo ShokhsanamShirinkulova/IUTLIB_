@@ -7,22 +7,21 @@
 	    	<h1 class="popularTitle">Most popular books</h1>
 	  	  {{-- <div class="first-section"> --}}
 			  	<div class="parallax">
-
-				   <div class="owl-carousel">
-						@foreach($pbooks as $pbook)
-						  <div class="item">
-						  	<a href=""><h4>{{$pbook->bookName}}</h4></a>
-						   	<img src="/storage/cover_images/{{$pbook->cover_image}}" alt="{{$pbook->bookName}}">
-						  </div>
-					  @endforeach
-					</div>
-					
-					<div class="container">
-						<div class="row">
-							<h2 class="quote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam dolorum at officia consequatur, minima, tempora eveniet fugiat sed cumque earum laborum obcaecati, libero doloremque quam adipisci amet necessitatibus! Possimus, voluptate.</h2>
+				    <div class="owl-carousel">
+							@foreach($pbooks as $pbook)
+						  	<div class="item">
+						  		<a href=""><h4>{{$pbook->bookName}}</h4></a>
+						   		<img src="/storage/cover_images/{{$pbook->cover_image}}" alt="{{$pbook->bookName}}">
+						  	</div>
+					  	@endforeach
 						</div>
-					</div>
-			  	</div>
+					
+						<div class="container">
+							<div class="row">
+								<h2 class="quote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam dolorum at officia consequatur, minima, tempora eveniet fugiat sed cumque earum laborum obcaecati, libero doloremque quam adipisci amet necessitatibus! Possimus, voluptate.</h2>
+							</div>
+						</div>
+			    </div>
 	  	  {{-- </div> --}}
 	  	</div>
 	    <div class="description">
@@ -44,10 +43,10 @@
     	  	<div class="row">
     	  		@foreach($rbooks as $rbook)
 		    	  <div class="col-md-3">
-		    	  	<img src="/storage/cover_images/{{ $rbook->cover_image }}" alt="book1">
+		    	  	<img src="/storage/cover_images/{{ $rbook->cover_image }}" alt="{{ $rbook->bookName }}">
 		    	  	<a href="#"><h2>{{ $rbook->bookName }}</h2></a>
 		    	  </div>
-		    	@endforeach
+		    		@endforeach
 		  	 </div>
 	  	 </div>
 	  	</div>

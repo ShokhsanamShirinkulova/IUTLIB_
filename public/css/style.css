@@ -185,7 +185,6 @@ header form input{
 	padding: 30px;
 	font-size: 18px;
 	color: #0288D1;
-	font-weight: bold;
 	letter-spacing: 1px;
 }
 .description .about h1{
@@ -222,6 +221,7 @@ header form input{
 	height: 100%;
 	position: absolute;
 	top: 50%;
+	padding: 150px 0;
 	text-align: center; 
 	background: rgba(0,0,0,0.7);
 	transform: translateY(-50%);
@@ -354,7 +354,7 @@ footer p{
 }
 .about_lms img{
 	width: 100%;
-	padding: 15px 50px;
+	padding: 18px;
 }
 .about_title{
 	margin: 20px 0 25px 0;
@@ -715,6 +715,13 @@ footer p{
 	font-size: 18px;
 	color: yellow;
 }
+.paginateCatalog{
+	margin: 20px;
+}
+.pagination{
+	width: 70px;
+}
+/* end of catalog style */
 #hellopreloader{
 	-ms-overflow-style: none;  // IE 10+
   overflow: -moz-scrollbars-none;

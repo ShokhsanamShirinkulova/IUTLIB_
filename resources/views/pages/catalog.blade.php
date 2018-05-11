@@ -88,17 +88,25 @@
                           <h5>Pages: </h5>
                           <h5>ISBN: {{$book->isbn}}</h5>
                         </div>
+                        <div class="row">
+                          <div class="bottom-bar">
+                            <div class="tooltip">
+                              <i class="fas fa-download"></i> 402
+                              <span class="tooltiptext">Number of downloads</span>
+                            </div>
+                            <div class="tooltip">
+                              <i class="fas fa-comments"></i> 56
+                             <span class="tooltiptext">Number of comments</span>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="row">
+              {{-- <div class="row">
                 <div class="bottom-bar">
-                  <div class="tooltip">
-                    <i class="fas fa-eye"></i> 15689 
-                    <span class="tooltiptext">Seen times</span>
-                  </div>
                   <div class="tooltip">
                     <i class="fas fa-download"></i> 402
                     <span class="tooltiptext">Number of downloads</span>
@@ -108,7 +116,7 @@
                    <span class="tooltiptext">Number of comments</span>
                   </div>
                 </div>
-              </div>
+              </div> --}}
             </div>
           </div>
         </div>

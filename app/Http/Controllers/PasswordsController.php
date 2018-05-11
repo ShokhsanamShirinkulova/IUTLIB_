@@ -6,15 +6,13 @@ use Hash;
 use IUTLib\Member;
 use Illuminate\Http\Request;
 
-class PasswordsController extends Controller
-{
+class PasswordsController extends Controller{
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index(){
         return redirect('/home')->with('error', 'Unauthorized Page');
     }
 
@@ -23,8 +21,7 @@ class PasswordsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create(){
         return redirect('/home')->with('error', 'Unauthorized Page');
     }
 
@@ -34,8 +31,7 @@ class PasswordsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request){
         return redirect('/home')->with('error', 'Unauthorized Page');
     }
 
@@ -45,8 +41,7 @@ class PasswordsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
+    public function show($id){
         return redirect('/home')->with('error', 'Unauthorized Page');
     }
 
@@ -73,8 +68,7 @@ class PasswordsController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id){
         $member = Member::find($id);
         if (auth()->user()->id != $member->id) {
             return redirect('/home')->with('error', 'Unauthorized Page');
@@ -91,8 +85,7 @@ class PasswordsController extends Controller
             'current_password' => 'required|min:6',
             'password' => 'required|confirmed|min:6',
         ]);
-        if(!Hash::check($request->input('current_password'), auth()->user()->password))
-        {
+        if(!Hash::check($request->input('current_password'), auth()->user()->password)){
                 return redirect('/passwords/'.$id.'/edit')->with('error', 'Wrong Current Password');
         }
         $member->userID = $request->input('userID');
@@ -114,8 +107,7 @@ class PasswordsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id){
         return redirect('/home')->with('error', 'Unauthorized Page');   
     }
 }

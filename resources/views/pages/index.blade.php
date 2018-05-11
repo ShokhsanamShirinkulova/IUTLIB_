@@ -102,7 +102,7 @@
 		  		  	  	</tr>
 		  		  	  	<tr>
 		  		  	  	  <td><strong>Website:</strong></td>
-		  		  	  	  <td><a href="www.iut.uz"> www.iut.uz</a><a href="www.inha.uz">www.inha.uz</a></td>
+		  		  	  	  <td><a href="www.iut.uz"> www.iut.uz </a><a href="www.inha.uz">www.inha.uz</a></td>
 		  		  	  	</tr>
 		  		  	  </table>
 		  		    </div>

@@ -20,13 +20,19 @@
 				    	{{ Form::label('bookAuthor', 'Book Author')}}
 				    	{{ Form::text('bookAuthor', '', ['class' => 'form-control', 'placeholder' => 'Book Author'] )}}
 				    </div>
-				    <div class="form-group">
-				    	<p>{{ Form::label('bookType', 'Book Type')}}</p>
-				    	{{Form::select('bookType', ['Science' => 'Science', 'HIstory' => 'History', 'Exact' => 'Exact'])}}
-				    </div>
-				    <div class="form-group">
-				    	<p>{{ Form::label('genre', 'Book Genre')}}</p>
-				    	{{Form::select('genre', ['Detective' => 'Detective', 'Fairy tale' => 'Fairy Tale', 'Historical' => 'Historical'])}}
+				    <div class="row">
+					    <div class="col-md-6">
+						    <div class="form-group">
+						    	<p>{{ Form::label('bookType', 'Book Type')}}</p>
+						    	{{Form::select('bookType', ['Science' => 'Science', 'HIstory' => 'History', 'Exact' => 'Exact'])}}
+						    </div>
+					    </div>
+					    <div class="col-md-6">
+						    <div class="form-group">
+						    	<p>{{ Form::label('genre', 'Book Genre')}}</p>
+						    	{{Form::select('genre', ['Detective' => 'Detective', 'Fairy tale' => 'Fairy Tale', 'Historical' => 'Historical'])}}
+						    </div>
+					    </div>
 				    </div>
 				    <!-- <div class="form-group">
 				    	{{ Form::label('describtion', 'Book Describtion')}}

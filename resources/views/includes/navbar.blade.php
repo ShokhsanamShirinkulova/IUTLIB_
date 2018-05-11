@@ -66,4 +66,10 @@
       </div>
     </nav>
   </div>
+  <div class="row">
+    <ul class="breadcrumb" style="width: 100%;">
+      <li class="breadcrumb-item"><a href="#">Home</a></li>
+      <li class="breadcrumb-item"><a href="#">Books</a></li>
+    </ul>
+  </div>
 </div>

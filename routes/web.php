@@ -25,3 +25,6 @@ Route::get('/personalinfo', function(){
 Route::resource('members', 'MembersController');
 Route::resource('books', 'BooksController');
 Route::resource('passwords', 'PasswordsController');
+Route::get('/textbooks', function(){
+	return view('pages.textbooks');
+});

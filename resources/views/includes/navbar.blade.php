@@ -4,7 +4,7 @@
       <nav class="navbar navbar-custom">
         <div class="container-fluid">
           <div class="navbar-header col-md-7 col-sm-7  col-xs-7">
-            <a class="navbar-brand" href="#"><img src="{{ asset("img/logo.png") }}" alt="logo"></a>
+            <a class="navbar-brand" href="/"><img src="{{ asset("img/logo.png") }}" alt="logo"></a>
           </div>
           <div class="col-md-5 col-sm-5 col-xs-5">
             <form action="#">
@@ -29,7 +29,7 @@
           <ul class="navbar-nav">
             <li class="nav-item"><a class="nav-link" href="/"><i class="fas fa-home"></i> Home</a></li>
             <li class="nav-item"><a class="nav-link" href="/catalog"> Catalogue</a></li>
-            <li class="nav-item"><a class="nav-link" href="#"> Text Books</a></li>
+            <li class="nav-item"><a class="nav-link" href="/textbooks"> Text Books</a></li>
             <li class="nav-item"><a class="nav-link" href="/about"> About</a></li>
           </ul>
           <ul class="navbar-nav ml-auto">

@@ -293,6 +293,9 @@ header form input{
 	vertical-align: top;
 	padding: 0 10px;
 }
+.footer-right tr td a{
+	color: #fff;
+}
 footer{
 	background: #0065B3; 
 	width:100%;
@@ -305,6 +308,12 @@ footer .footer-left{
 	left: 50%;
 	text-align: center; 
 	transform: translate(-50%, -50%);
+}
+footer .footer-right{
+	margin: 35px 0;
+	text-align: left; 
+	font-size: 14px;
+	position: relative;
 }
 footer .footer-left p{
 	padding: 10px 20px;

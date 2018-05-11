@@ -75,7 +75,7 @@
 		  	  </div>
 	  	  </div>
 		  </div>
-			<div class="info">
+		<div class="info">
   		  <div class="row">
   		    <div class="col-md-6">
   		  		<div class="row">
@@ -102,7 +102,7 @@
 		  		  	  	</tr>
 		  		  	  	<tr>
 		  		  	  	  <td><strong>Website:</strong></td>
-		  		  	  	  <td><a href="www.iut.uz"> www.iut.uz </a><a href="www.inha.uz">www.inha.uz</a></td>
+		  		  	  	  <td><a href="www.iut.uz"> www.iut.uz </a><a href="www.inha.uz"> www.inha.uz</a></td>
 		  		  	  	</tr>
 		  		  	  </table>
 		  		    </div>

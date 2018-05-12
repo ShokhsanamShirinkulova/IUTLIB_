@@ -221,16 +221,20 @@ label.star:before {
 						</div>
 						<br>
 						<div class="bookDetailCommentBlock">
-							<h4>Leave a Comment: </h4><hr>
-							<div class="row">
-								<form class="col-md-12" action="/comments" method="POST">
-									{{ csrf_field() }}
-									<textarea name="body" cols="10" rows="3" placeholder="comments:"></textarea>
-									<input type="hidden" name="book_id" value="{{ $book->id }}">
-									<input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
-										<input class="btn btn-primary" type="submit" value="Send">
-								</forms>
-							</div>
+							@guest
+							
+							@else
+								<h4>Leave a Comment: </h4><hr>
+								<div class="row">
+									<form class="col-md-12" action="/comments" method="POST">
+										{{ csrf_field() }}
+										<textarea name="body" cols="10" rows="3" placeholder="comments:"></textarea>
+										<input type="hidden" name="book_id" value="{{ $book->id }}">
+										<input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+											<input class="btn btn-primary" type="submit" value="Send">
+									</forms>
+								</div>
+							@endif
 							<br>
 							<div class="row">
 								<div class="col-md-12">
@@ -240,7 +244,9 @@ label.star:before {
 											<div class="commentText">
 												<h4><span>{{ $comment->user->firstName . ' ' . $comment->user->lastName }}</span> <span>| {{ $comment->created_at }}</span></h4>
 												<h5>{{ $comment->body }}</h5>
-												@if(auth()->user()->id == $comment->user->id)
+												@guest
+
+												@elseif(auth()->user()->id == $comment->user->id)
 													<a href="/comments/{{ $comment->id }}/delete" class="btn btn-danger">Delete</a>
 												@endif
 											</div>

@@ -22,7 +22,7 @@ class BooksController extends Controller
     public function index()
     {
          if (auth()->user()->userType != 2) {
-            return redirect('/home')->with('error', 'Unauthorized Page');
+            return redirect('/pagenotfound');
         }
         $books = Book::orderBy('bookID', 'desc' /*'asc'*/)->paginate(10);
         return view('books.index')->with('books', $books);
@@ -36,7 +36,7 @@ class BooksController extends Controller
     public function create()
     {
         if (auth()->user()->userType != 2) {
-            return redirect('/home')->with('error', 'Unauthorized Page');
+            return redirect('/pagenotfound');
         }
         return view('books.create');
     }
@@ -50,7 +50,7 @@ class BooksController extends Controller
     public function store(Request $request)
     {
         if (auth()->user()->userType != 2) {
-            return redirect('/home')->with('error', 'Unauthorized Page');
+            return redirect('/pagenotfound');
         }
         $this->validate($request,[
             'bookID' => 'required|unique:books|digits_between:6,6',
@@ -116,9 +116,7 @@ class BooksController extends Controller
      */
     public function show($id)
     {
-        if (auth()->user()->userType != 2) {
-            return redirect('/home')->with('error', 'Unauthorized Page');
-        }
+        return redirect('/pagenotfound');
     }
 
     /**
@@ -129,10 +127,10 @@ class BooksController extends Controller
      */
     public function edit($id)
     {
-        $book = Book::find($id);
+        $book = Book::findOrFail($id);
          // Check for correct user id
         if (auth()->user()->userType != 2 && auth()->user()->id != $member->id) {
-            return redirect('/home')->with('error', 'Unauthorized Page');
+            return redirect('/pagenotfound');
         }
         return view('books.edit')->with('book', $book);
     }
@@ -147,9 +145,9 @@ class BooksController extends Controller
     public function update(Request $request, $id)
     {
         if (auth()->user()->userType != 2) {
-            return redirect('/home')->with('error', 'Unauthorized Page');
+            return redirect('/pagenotfound');
         }
-        $book = Book::find($id);
+        $book = Book::findOrFail($id);
         $this->validate($request,[
             'bookID' => 'required|' .(($book->bookID == $request->input('bookID')) ? '':'unique:books|').'digits_between:6,6',
             'bookName' => 'required|string|max:255',
@@ -212,7 +210,7 @@ class BooksController extends Controller
      */
     public function destroy($id)
     {
-        $book = Book::find($id);
+        $book = Book::findOrFail($id);
 
         // Check for correct user id
         if (auth()->user()->userType != 2) {

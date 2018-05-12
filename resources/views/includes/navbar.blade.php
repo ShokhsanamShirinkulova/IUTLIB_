@@ -68,7 +68,7 @@
   </div>
   <div class="row">
     <ul class="breadcrumb" style="width: 100%">
-      <li class="breadcrumb-item"><a href="#"><i class="fa fa-dashboard"></i>IUTLib</a></li>
+      <li class="breadcrumb-item"><a href="/"><i class="fa fa-dashboard"></i>IUTLib</a></li>
       <?php $segments = ''; ?>
       @foreach(Request::segments() as $segment)
           

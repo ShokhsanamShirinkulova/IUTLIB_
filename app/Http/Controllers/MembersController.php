@@ -20,7 +20,7 @@ class MembersController extends Controller
     public function index()
     {
         if (auth()->user()->userType != 2) {
-            return redirect('/home')->with('error', 'Unauthorized Page');
+            return redirect('/pagenotfound');
         }
         $members = Member::orderBy('userID', 'asc' /*'desc'*/)->paginate(10);
         return view('members.index')->with('members', $members);
@@ -33,7 +33,7 @@ class MembersController extends Controller
     public function create()
     {
         if (auth()->user()->userType != 2) {
-            return redirect('/home')->with('error', 'Unauthorized Page');
+            return redirect('/pagenotfound');
         }
         return view('members.create');
     }
@@ -47,7 +47,7 @@ class MembersController extends Controller
     public function store(Request $request)
     {
         if (auth()->user()->userType != 2) {
-            return redirect('/home')->with('error', 'Unauthorized Page');
+            return redirect('/pagenotfound');
         }
         $this->validate($request,[
             'userID' => 'required|string|unique:users',
@@ -83,9 +83,7 @@ class MembersController extends Controller
      */
     public function show($id)
     {
-        if (auth()->user()->userType != 2) {
-            return redirect('/home')->with('error', 'Unauthorized Page');
-        }
+        return redirect('/pagenotfound');
     }
 
     /**
@@ -96,11 +94,14 @@ class MembersController extends Controller
      */
     public function edit($id)
     {
-        $member = Member::find($id);
+        $this->validate(
+            [$id => 'required|integer']);
+
+        $member = Member::findOrFail($id);
 
         // Check fo correct user id
-        if (auth()->user()->userType != 2 && auth()->user()->id != $member->id) {
-            return redirect('/home')->with('error', 'Unauthorized Page');
+        if (is_null($member) || (auth()->user()->userType != 2 && auth()->user()->id != $member->id)) {
+            return redirect('/pagenotfound');
         }
         return view('members.edit')->with('member', $member);
     }
@@ -115,9 +116,9 @@ class MembersController extends Controller
     public function update(Request $request, $id)
     {
         if (auth()->user()->userType != 2 && auth()->user()->id != $member->id) {
-            return redirect('/home')->with('error', 'Unauthorized Page');
+            return redirect('/pagenotfound');
         }
-        $member = Member::find($id);
+        $member = Member::findOrFail($id);
         $this->validate($request,[
             'userID' => 'required|string'.($member->userID == $request->input('userID')? '':'|unique:users'),
             'firstName' => 'required|string|max:255',
@@ -151,11 +152,11 @@ class MembersController extends Controller
      */
     public function destroy($id)
     {
-        $member = Member::find($id);
+        $member = Member::findOrFail($id);
 
         // Check fo correct user id
         if (auth()->user()->userType != 2 && auth()->user()->id != $member->id) {
-            return redirect('/home')->with('error', 'Unauthorized Page');
+            return redirect('/pagenotfound');
         }
         $member->delete();
         return redirect('/members')->with('success', 'Post Removed');

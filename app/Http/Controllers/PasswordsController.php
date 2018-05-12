@@ -13,7 +13,7 @@ class PasswordsController extends Controller{
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        return redirect('/home')->with('error', 'Unauthorized Page');
+        return redirect('/pagenotfound');
     }
 
     /**
@@ -22,7 +22,7 @@ class PasswordsController extends Controller{
      * @return \Illuminate\Http\Response
      */
     public function create(){
-        return redirect('/home')->with('error', 'Unauthorized Page');
+        return redirect('/pagenotfound');
     }
 
     /**
@@ -32,7 +32,7 @@ class PasswordsController extends Controller{
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
-        return redirect('/home')->with('error', 'Unauthorized Page');
+        return redirect('/pagenotfound');
     }
 
     /**
@@ -42,7 +42,7 @@ class PasswordsController extends Controller{
      * @return \Illuminate\Http\Response
      */
     public function show($id){
-        return redirect('/home')->with('error', 'Unauthorized Page');
+        return redirect('/pagenotfound');
     }
 
     /**
@@ -53,9 +53,9 @@ class PasswordsController extends Controller{
      */
     public function edit($id)
     {
-        $member = Member::find($id);
+        $member = Member::findOrFail($id);
         if (is_null($member) || auth()->user()->id != $member->id) {
-            return redirect('/home')->with('error', 'Unauthorized Page');
+            return redirect('/pagenotfound');
         }
         return view('members.changePSWD')->with('member', $member);
     }
@@ -69,9 +69,9 @@ class PasswordsController extends Controller{
      */
 
     public function update(Request $request, $id){
-        $member = Member::find($id);
+        $member = Member::findOrFail($id);
         if (auth()->user()->id != $member->id) {
-            return redirect('/home')->with('error', 'Unauthorized Page');
+            return redirect('/pagenotfound');
         }
         $this->validate($request,[
             'userID' => 'required|string'.($member->userID == $request->input('userID')? '':'|unique:users'),
@@ -108,6 +108,6 @@ class PasswordsController extends Controller{
      * @return \Illuminate\Http\Response
      */
     public function destroy($id){
-        return redirect('/home')->with('error', 'Unauthorized Page');   
+        return redirect('/pagenotfound');   
     }
 }

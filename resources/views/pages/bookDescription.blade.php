@@ -191,17 +191,25 @@ label.star:before {
 				  					</div>
 				  					<div class="row">
 				  						<div class="bookDetailInfo">
+				  							<?php
+												function count_pages($pdfname) {
+												  $pdftext = file_get_contents('./storage/attached_files/'.$pdfname);
+												  $num = preg_match_all("/\/Page\W/", $pdftext, $dummy);
+												  return $num;
+												}
+											?>
+												
 							                  <h5>Country: {{$book->country}}</h5>
 							                  <h5>Language: {{$book->language}}</h5>
 							                  <h5>Published: {{$book->publishedYear}}</h5>
-							                  <h5>Pages: 560</h5>
+							                  <h5>Pages: {{ ((empty($book->attachedFile) ||file_exists(public_path('attached_files/'.$book->attachedFile))) ? 0 : count_pages($book->attachedFile)) }}</h5>
 							                  <h5>ISBN: {{$book->isbn}}</h5>
 						                  </div>
 				  					</div>
 				  					<div class="row">
 				  						<div class="bottom-bar">
 						                    <div class="tooltip">
-						                      <i class="fas fa-download"></i> {{ $book->downloads/8 }}
+						                      <i class="fas fa-download"></i> {{ $book->downloads }}
 						                      <span class="tooltiptext">Number of downloads</span>
 						                    </div>
 						                    <div class="tooltip">

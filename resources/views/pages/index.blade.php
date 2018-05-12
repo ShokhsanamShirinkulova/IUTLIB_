@@ -18,7 +18,7 @@
 					
 						<div class="container">
 							<div class="row">
-								<h2 class="quote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam dolorum at officia consequatur, minima, tempora eveniet fugiat sed cumque earum laborum obcaecati, libero doloremque quam adipisci amet necessitatibus! Possimus, voluptate.</h2>
+								<h2 class="quote"> ipsum dolor sit amet, consectetur adipisicing elit. Quisquam dolorum at officia consequatur, minima, tempora eveniet fugiat sed cumque earum laborum obcaecati, libero doloremque quam adipisci amet necessitatibus! Possimus, voluptate.</h2>
 							</div>
 						</div>
 			    </div>

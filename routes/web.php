@@ -17,6 +17,7 @@ Route::get('/', 'PagesController@index');
 Route::get('/about', 'PagesController@about');
 Route::get('/catalog', 'PagesController@catalog');
 Route::get('/bookDetail/{id}', 'PagesController@bookDescription');
+Route::get('/bookDownload/{id}', 'PagesController@bookDownload');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('Home');
@@ -29,3 +30,6 @@ Route::resource('passwords', 'PasswordsController');
 Route::get('/textbooks', function(){
 	return view('pages.textbooks');
 });
+
+Route::post('/comments/', "CommentsController@store");
+Route::get('/comments/{id}/delete', "CommentsController@destroy");

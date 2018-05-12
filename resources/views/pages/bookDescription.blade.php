@@ -161,7 +161,7 @@ label.star:before {
 				  					<h5> {{$book->bookAuthor}}</h5>
 				  					<p>Genre:</p>
 				  					<p><a href="">Fantasy </a>, <a href="">Romance</a></p><br>
-				  					<a class="btn btn-primary"><i class="fas fa-download"></i> Download</a>
+				  					<a href="/bookDownload/{{ $book->id }}" class="btn btn-primary"><i class="fas fa-download"></i> Download</a>
 			  					</div>
 			  				</div>
 			  				<div class="col-md-3 col-sm-3">
@@ -197,7 +197,7 @@ label.star:before {
 				  					<div class="row">
 				  						<div class="bottom-bar">
 						                    <div class="tooltip">
-						                      <i class="fas fa-download"></i> 402
+						                      <i class="fas fa-download"></i> {{ $book->downloads/8 }}
 						                      <span class="tooltiptext">Number of downloads</span>
 						                    </div>
 						                    <div class="tooltip">
@@ -218,26 +218,32 @@ label.star:before {
 						<br>
 						<div class="bookDetailCommentBlock">
 							<h4>Leave a Comment: </h4><hr>
-								<div class="row">
-									<div class="col-md-12">
-										<textarea name="" id="" cols="10" rows="3" placeholder="comments:"></textarea>
-										<div class="row">
-											<a href="#" class="btn btn-primary pull-right">Send</a>
-									</div>
-								</div>
+							<div class="row">
+								<form class="col-md-12" action="/comments" method="POST">
+									<textarea name="body" cols="10" rows="3" placeholder="comments:"></textarea>
+									<input type="hidden" name="book_id" value="{{ $book->id }}">
+									<input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+										<input class="btn btn-primary" type="submit" value="Send">
+								</forms>
 							</div>
 							<br>
 							<div class="row">
 								<div class="col-md-12">
 									<h4>Comments: </h4><hr>
-									<div class="commentText">
-										<h4><span>Name of the user </span> <span>| 03.05.2018, 11:28:43</span></h4>
-										<h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit reprehenderit consectetur officia dolor illum libero praesentium veniam assumenda culpa nobis iste, quisquam cupiditate molestias rerum facere placeat itaque aperiam hic.</h5>
-									</div><hr>
-									<div class="commentText">
-										<h4><span>Name of the user </span> <span>| 03.05.2018, 11:28:43</span></h4>
-										<h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit reprehenderit consectetur officia dolor illum libero praesentium veniam assumenda culpa nobis iste, quisquam cupiditate molestias rerum facere placeat itaque aperiam hic.</h5>
-									</div>
+									@if(count($comments)>0)
+										@foreach($comments as $comment)
+											<div class="commentText">
+												<h4><span>{{ $comment->user->firstName . ' ' . $comment->user->lastName }}</span> <span>| {{ $comment->created_at }}</span></h4>
+												<h5>{{ $comment->body }}</h5>
+												@if(auth()->user()->id == $comment->user->id)
+													<a href="/comments/{{ $comment->id }}/delete" class="btn btn-danger">Delete</a>
+												@endif
+											</div>
+											<hr>
+										@endforeach
+									@else
+										<h4>There is No Comments</h4>
+									@endif
 								</div>
 							</div>
 						</div>
@@ -246,32 +252,33 @@ label.star:before {
 		  		<div class="col-md-3">
 		  			<div class="bookDetailSidebar">
 		  				<div class="container">
-		  				<div class="row">
-				  			<h4>The most popular</h4><br>
-				  			<div class="row">
-				  				<div class="sideDetails">
-				  					<img src="/storage/cover_images/{{$pbook->cover_image}}" alt="">
-				  				</div>
-				  				<br>
-				  				<div class="sideDetailsInfo">
-				  					<a href=""><h4 style="margin: 0;"> {{$pbook->bookName}}</h4></a>
-				  				</div>
+			  				<div class="row">
+					  			<h4>The most popular</h4><br>
+					  			<div class="row">
+						  				<div class="sideDetails">
+						  					<a href="/bookDetail/{{ $pbook->id }}"><img src="/storage/cover_images/{{$pbook->cover_image}}" alt=""></a>
+						  				</div>
+					  				<div class="sideDetailsInfo">
+					  					<a href="/bookDetail/{{ $pbook->id }}"><h4 style="margin: 0;"> {{$pbook->bookName}}</h4></a>
+					  				</div>
+					  			</div>
 				  			</div>
-			  			</div>
-			  			<hr>
-			  			<div class="row">
-			  				<h4>Recently added</h4><br>
+				  			<hr>
 				  			<div class="row">
-				  				<div class="sideDetails">
-				  					<img src="/storage/cover_images/{{$rbook->cover_image}}" alt="">
-				  				</div>
-				  				<br>
-				  				<div class="sideDetailsInfo">
-				  					<a href=""><h4 style="margin: 0;">{{$rbook->bookName}}</h4></a>
-				  				</div>
+					  			<h4>The most popular</h4><br>
+					  			<div class="row">
+						  			<div class="row">
+						  				<div class="sideDetails">
+						  					<a href="/bookDetail/{{ $rbook->id }}"><img src="/storage/cover_images/{{$rbook->cover_image}}" alt=""></a>
+						  				</div>
+						  			</div>
+					  				<div class="sideDetailsInfo">
+					  					<a href="/bookDetail/{{ $rbook->id }}"><h4 style="margin: 0;">{{$rbook->bookName}}</h4></a>
+					  				</div>
+					  			</div>
 				  			</div>
-			  			</div>
-		  			</div></div>
+		  				</div>
+		  			</div>
 		  		</div>
 		  	</div>
   	</div>

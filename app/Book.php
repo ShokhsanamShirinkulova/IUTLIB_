@@ -17,4 +17,14 @@ class Book extends Model
     {
     	return $this->hasMany('App\Genre');
     }
+    
+    public function comments($value='')
+    {
+        return $this->hasMany('IUTLib\Comment');
+    }
+
+    public function book()
+    {
+        return $this->belongsTo('App\Book');
+    }
 }

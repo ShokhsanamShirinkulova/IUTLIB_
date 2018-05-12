@@ -876,3 +876,43 @@ label.star:before {
 /*::-webkit-scrollbar {
 	display: none;
 }*/
+
+/* text book main style */
+.textBookMain{
+	width: 100%;
+	padding: 15px;
+	background-color: white;
+	box-shadow: 0 5px 10px #424242;
+}
+.textBookMain .nav li>a{
+	color: #0065B3
+}
+.tab-content img{
+	width: 100%;
+}
+.tab-content .col-md-6:first-child{
+	border-right: 1px solid;
+}
+.tab-content h2{
+	opacity: 0;
+	width: 100%;
+	color: #fff;
+	height: 100%;
+	position: absolute;
+	top: 50%;
+	padding: 100px 0;
+	text-align: center; 
+	background: rgba(0,0,0,0.7);
+	transform: translateY(-50%);
+	transition: all 0.35s;
+}
+.tab-content h2:hover{
+	opacity: 1;
+	transition: all .35s;
+}
+.tab-content h3{
+ 	text-align: center;
+}
+.tab-content img{
+	padding: 8px;
+}

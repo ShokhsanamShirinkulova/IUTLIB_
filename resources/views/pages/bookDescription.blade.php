@@ -161,7 +161,11 @@ label.star:before {
 				  					<h5> {{$book->bookAuthor}}</h5>
 				  					<p>Genre:</p>
 				  					<p><a href="">Fantasy </a>, <a href="">Romance</a></p><br>
-				  					<a href="/bookDownload/{{ $book->id }}" class="btn btn-primary"><i class="fas fa-download"></i> Download</a>
+				  					@if(!empty($book->attachedFile))
+				  							<a href="/bookDownload/{{ $book->id }}" class="btn btn-primary"><i class="fas fa-download"></i> Download</a>
+				  					@else
+				  							<h4>There is no attachment, yet</h4>
+				  					@endif
 			  					</div>
 			  				</div>
 			  				<div class="col-md-3 col-sm-3">
@@ -201,7 +205,7 @@ label.star:before {
 						                      <span class="tooltiptext">Number of downloads</span>
 						                    </div>
 						                    <div class="tooltip">
-						                      <i class="fas fa-comments"></i> 56
+						                      <i class="fas fa-comments"></i> {{ count($comments) }}
 						                     <span class="tooltiptext">Number of comments</span>
 						                    </div>
 						                </div>

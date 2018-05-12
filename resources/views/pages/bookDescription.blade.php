@@ -148,7 +148,7 @@ label.star:before {
 
 	  	<div class="container-fluid">
 	  		<div class="row">
-		  		<div class="col-md-8">
+		  		<div class="col-md-9">
 		  			<div class="bookDetailMainBlock">
 		  				<div class="row">
 			  				<div class="col-md-3 col-sm-3">
@@ -243,8 +243,9 @@ label.star:before {
 						</div>
 						<br>
 		  		</div>
-		  		<div class="col-md-4">
+		  		<div class="col-md-3">
 		  			<div class="bookDetailSidebar">
+		  				<div class="container">
 		  				<div class="row">
 				  			<h4>The most popular</h4><br>
 				  			<div class="row">
@@ -270,7 +271,7 @@ label.star:before {
 				  				</div>
 				  			</div>
 			  			</div>
-		  			</div>
+		  			</div></div>
 		  		</div>
 		  	</div>
   	</div>

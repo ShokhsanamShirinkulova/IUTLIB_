@@ -314,6 +314,10 @@ footer .footer-right{
 	text-align: left; 
 	font-size: 14px;
 	position: relative;
+	color: #fff;
+}
+.footer-right table{
+	color: #fff;
 }
 footer .footer-left p{
 	padding: 10px 20px;
@@ -829,45 +833,46 @@ input[type=date]::-webkit-calendar-picker-indicator {
 }
 /* end of personal information style */
 
-/* text book main style */
-.textBookMain{
-	width: 100%;
-	padding: 15px;
-	background-color: white;
-	box-shadow: 0 5px 10px #424242;
+div.stars {
+  width: 100%;
+  display: inline;
+  float: right;
+  transform: translateX(-100%);
+  position: relative;
+  left: 43%;
 }
-.textBookMain .nav li>a{
-	color: #0065B3
+input.star { display: none; }
+label.star {
+  float: right;
+  left: 0;
+  padding: 2px;
+  font-size: 20px;
+  color: #444;
+  transition: all .2s;
 }
-.tab-content img{
-	width: 100%;
+input.star:checked ~ label.star:before {
+  content: '\2605';
+  color: #FD4;
+  transition: all .25s;
 }
-.tab-content .col-md-6:first-child{
-	border-right: 1px solid;
+input.star-5:checked ~ label.star:before {
+  color: #FE7;
+  text-shadow: 0 0 3px #9E9E9E;
 }
-.tab-content h2{
-	opacity: 0;
-	width: 100%;
-	color: #fff;
-	height: 100%;
-	position: absolute;
-	top: 45%;
-	padding: 100px 0;
-	text-align: center; 
-	background: rgba(0,0,0,0.7);
-	transform: translateY(-52%);
-	transition: all 0.35s;
+input.star-1:checked ~ label.star:before { color: #F62; }
+label.star:hover { transform: scale(1.3); }
+label.star:before {
+  content: '★';
+  font-family: FontAwesome;
 }
-.tab-content h2:hover{
-	opacity: 1;
-	transition: all .35s;
+.membersTable{
+	font-size: 14px;
+	vertical-align: bottom;
 }
-.tab-content h3
-{
- 	text-align: center;
+.table tr td,.table tr th{
+	padding: 10px 5px!important;
+	vertical-align: middle;
 }
-.tab-content img
-{
-	padding: 8px;
-
-}
+/*::-webkit-scrollbar {
+	display: none;
+}*/

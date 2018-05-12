@@ -33,3 +33,4 @@ Route::get('/textbooks', function(){
 
 Route::post('/comments/', "CommentsController@store");
 Route::get('/comments/{id}/delete', "CommentsController@destroy");
+Route::get('/search', "PagesController@search");

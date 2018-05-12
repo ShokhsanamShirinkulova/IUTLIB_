@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@if(count($books))
 <div class="container-fluid">
 <div class="row">
   <!--filter bar-->
@@ -51,7 +52,6 @@
       <!-- book items -->
       <div class="container-fluid">
        @foreach($books as $book)
-      {{-- {!! Form::open(['action' => ['PagesController@bookDescription',$book->id], 'method' => 'POST'])!!} --}}
         <div class="bookItem-box">
           <div class="row">
             <div class="container">
@@ -124,32 +124,28 @@
                   </div>
                 </div>
               </div>
-              {{-- <div class="row">
-                <div class="bottom-bar">
-                  <div class="tooltip">
-                    <i class="fas fa-download"></i> 402
-                    <span class="tooltiptext">Number of downloads</span>
-                  </div>
-                  <div class="tooltip">
-                    <i class="fas fa-comments"></i> 56
-                   <span class="tooltiptext">Number of comments</span>
-                  </div>
-                </div>
-              </div> --}}
+          
             </div>
           </div>
         </div>
-    {{-- / {!! Form::close() !!} --}}
         @endforeach
       </div>
       <div class="paginateCatalog">
         {{ $books->links() }}
       </div>
-      <!-- end of book items section -->
     </div>
   </div>
 </div>
   <br>
   <br>
     </div>  
+    @else
+      <div class="jumbotron">
+        <div class="container">
+          <h1 class="text-center">
+            There is nothing to find !!!
+          </h1>
+        </div>
+      </div>
+    @endif
 @endsection

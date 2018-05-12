@@ -224,6 +224,7 @@ label.star:before {
 							<h4>Leave a Comment: </h4><hr>
 							<div class="row">
 								<form class="col-md-12" action="/comments" method="POST">
+									{{ csrf_field() }}
 									<textarea name="body" cols="10" rows="3" placeholder="comments:"></textarea>
 									<input type="hidden" name="book_id" value="{{ $book->id }}">
 									<input type="hidden" name="user_id" value="{{ auth()->user()->id }}">

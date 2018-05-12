@@ -60,4 +60,25 @@ class PagesController extends Controller
         // }
         return Response::download('./storage/attached_files/'.$book->attachedFile);
     }
+
+    public function search(Request $request)
+    {
+        $books = Book::where('bookID','LIKE','%'.$request->search.'%')
+        ->orwhere('bookName','LIKE','%'.$request->search.'%')
+        ->orwhere('bookAuthor','LIKE','%'.$request->search.'%')
+        ->orwhere('bookType','LIKE','%'.$request->search.'%')
+        ->orwhere('bookRank','LIKE','%'.$request->search.'%')
+        ->orwhere('publishedYear','LIKE','%'.$request->search.'%')
+        ->orwhere('attachedFile','LIKE','%'.$request->search.'%')
+        ->orwhere('cover_image','LIKE','%'.$request->search.'%')
+        ->orwhere('describtion','LIKE','%'.$request->search.'%')
+        ->orwhere('isbn','LIKE','%'.$request->search.'%')
+        ->orwhere('language','LIKE','%'.$request->search.'%')
+        ->orwhere('country','LIKE','%'.$request->search.'%')
+        ->orwhere('genre','LIKE','%'.$request->search.'%')
+        ->orwhere('semester','LIKE','%'.$request->search.'%')
+        ->paginate(10);
+        return view("pages.search")->with("books",$books);
+    }
+
 }

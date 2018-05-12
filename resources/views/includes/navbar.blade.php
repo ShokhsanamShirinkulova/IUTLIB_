@@ -7,7 +7,7 @@
             <a class="navbar-brand" href="/"><img src="{{ asset("img/logo.png") }}" alt="logo"></a>
           </div>
           <div class="col-md-5 col-sm-5 col-xs-5">
-            <form action="#">
+            <form action="/search">
               <input type="text" name="search" placeholder="Search" /><button type="submit"><i class="fas fa-search"></i></button>    
             </form>
           </div>
@@ -67,9 +67,15 @@
     </nav>
   </div>
   <div class="row">
-    <ul class="breadcrumb" style="width: 100%;">
-      <li class="breadcrumb-item"><a href="#">Home</a></li>
-      <li class="breadcrumb-item"><a href="#">Books</a></li>
-    </ul>
+    <ul class="breadcrumb" style="width: 100%">
+      <li class="breadcrumb-item"><a href="#"><i class="fa fa-dashboard"></i>IUTLib</a></li>
+      <?php $segments = ''; ?>
+      @foreach(Request::segments() as $segment)
+          
+          <li class="breadcrumb-item">
+              <a href="{{ $segments }}">{{$segment}}</a>
+          </li>
+      @endforeach
+  </ul>
   </div>
 </div>

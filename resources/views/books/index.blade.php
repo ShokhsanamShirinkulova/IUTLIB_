@@ -9,7 +9,14 @@
             <h3>Books</h3>
           </div>
           <div class="col-md-6">
-            <a href="/books/create" class="btn bookAddBtn">Add book</a>
+            <div class="row">
+            <div class="col-md-9" style="float: right;">
+              <a href="/books/create" class="btn bookAddBtn">Add book</a>
+            </div>
+            <div class="col-md-3">
+              <a href="/books/" class="btn bookAddBtn">Give book</a>
+            </div>
+            </div>
           </div>
         </div>
       </div>

@@ -28,10 +28,10 @@
             <div class="row">
               <div class="footer-right">
                 <div class="row">
-                  <div class="col-md-4">
+                  <div class="col-md-3">
                     <p> Inha University in Tashkent</p>
                   </div>
-                  <div class="col-md-8">
+                  <div class="col-md-9">
                     <table>
                       <tr>
                         <td><strong>Office:</strong></td>

@@ -29,12 +29,12 @@
 					    <div class="row">
 					    <div class="col-md-6">
 						    <div class="form-group">
-						    	<select id='bookType' onchange='check("bookType");'>
+						    	<select id='bookType' name="bookType" onchange='check("bookType");'>
 						          <option selected hidden disabled>Book type</option>
-						          <option value="Science" {{ ($book->bookType == 'Science') ? "selected" : "" }}>Science</option>
-						          <option value="Literature" {{ ($book->bookType == 'Literature') ? "selected" : "" }}>Literature</option>
-						          <option value="Textbook" {{ ($book->bookType == 'Textbook') ? "selected" : "" }}>Textbooks</option>
-						          <option value="Other" {{ ($book->bookType == 'Other') ? "selected" : "" }}>Other</option>
+						          <option value="Science" {{-- {{ ($book->bookType == 'Science') ? "selected" : "" }} --}}>Science</option>
+						          <option value="Literature" {{-- {{ ($book->bookType == 'Literature') ? "selected" : "" }} --}}>Literature</option>
+						          <option value="Textbook" {{-- {{ ($book->bookType == 'Textbook') ? "selected" : "" }} --}}>Textbooks</option>
+						          <option value="Other" {{-- {{ ($book->bookType == 'Other') ? "selected" : "" }} --}}>Other</option>
 						        </select>
 						    </div>
 					    </div>

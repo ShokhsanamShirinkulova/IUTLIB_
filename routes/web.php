@@ -16,6 +16,7 @@ use IUTLib\Member;
 Route::get('/', 'PagesController@index');
 Route::get('/about', 'PagesController@about');
 Route::get('/catalog', 'PagesController@catalog');
+Route::get('/bookDetail/{id}', 'PagesController@bookDescription');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('Home');

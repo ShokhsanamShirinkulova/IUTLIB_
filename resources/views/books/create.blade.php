@@ -29,9 +29,9 @@
 				    <div class="row">
 					    <div class="col-md-6">
 						    <div class="form-group">
-						    	<select id='bookType' onchange='check("bookType");'>
+						    	<select id='bookType' name="bookType" onchange='check("bookType");'>
 						          <option selected hidden disabled>Book type</option>
-						          <option value="Science">Science</option>
+						          <option value="Science" >Science</option>
 						          <option value="Literature">Literature</option>
 						          <option value="Textbook">Textbooks</option>
 						          <option value="Other">Other</option>
@@ -40,7 +40,7 @@
 					    </div>
 
 					    <div class="col-md-6">
-						    <select id='bookGenre' multiple>
+						    <select id='bookGenre' name="genre" multiple>
 					          <option selected hidden disabled>Book genre</option>
 					          <option value="Romance">Romance</option>
 					          <option value="Horror">Horror</option>
@@ -62,10 +62,10 @@
 					        </select>
 					    </div>
 				    </div>
-				    <!-- <div class="form-group">
+				     <div class="form-group">
 				    	{{ Form::label('describtion', 'Book Describtion')}}
-				    	{{ Form::text('describtion', '', ['class' => 'form-control', 'placeholder' => 'Book Describtion'] )}}
-				    </div> -->
+				    	{{ Form::textarea('describtion', '', ['class' => 'form-control', 'placeholder' => 'Book Describtion'] )}}
+				    </div> 
 				    <div class="form-group">
 				    	{{ Form::label('isbn', 'ISBN')}}
 				    	{{ Form::text('isbn', '', ['class' => 'form-control', 'placeholder' => 'ISBN'] )}}

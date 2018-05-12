@@ -55,6 +55,8 @@ class PagesController extends Controller
     {
         $book = Book::find($id);
         // if(Response::download()){
+        if(empty($book->attachedFile) || file_exists(public_path('attached_files/'.$book->attachedFile)))
+            return redirect("/bookDetail/".$id)->with("error","There is No Such File");
             $book->downloads++;
             $book->update();    
         // }

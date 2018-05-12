@@ -8,8 +8,8 @@
   <div class="col-md-3">
     <div class="sidebar">
       <h3 class="sidebar-title">Selection of books</h3>
-      <form action="">
-        <label for=""><span>Search:</span><input type="text" name="bookSearch" /></label>
+      <form action="/search">
+        <label for=""><span>Search:</span><input type="text" name="search" /></label>
         <label for="">
           <span>Genre:</span> 
           <select name="genre" id="genre" class="genre">

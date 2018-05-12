@@ -50,7 +50,8 @@
       <!-- end sorting box -->
       <!-- book items -->
       <div class="container-fluid">
-        @foreach($books as $book)
+       @foreach($books as $book)
+      {{-- {!! Form::open(['action' => ['PagesController@bookDescription',$book->id], 'method' => 'POST'])!!} --}}
         <div class="bookItem-box">
           <div class="row">
             <div class="container">
@@ -58,7 +59,7 @@
                 <div class="row">
                 <div class="col-md-2">
                   <div class="book-img">
-                    <a href="">
+                    <a href="/bookDetail/{{$book->id}}">
                       <img src="/storage/cover_images/{{$book->cover_image}}" alt="cover_image">
                     </a>
                   </div>
@@ -67,7 +68,7 @@
                   <div class="row">
                     <div class="col-md-8">
                       <h3 class="book-title">
-                        <a href="">{{$book->bookName}}</a>
+                        <a href="/bookDetail/{{$book->id}}">{{$book->bookName}}</a>
                       </h3>
                       <h4 class="book-author">
                         <a href="#">{{$book->bookAuthor}}</a>
@@ -75,7 +76,7 @@
                       <p class="book-description">
                         {{ $book->describtion }}
                       </p>
-                      <a href="#">more...</a>
+                      <a href="/bookDetail/{{$book->id}}">more...</a>
                     </div>
           
                       <div class="col-md-4">
@@ -138,6 +139,7 @@
             </div>
           </div>
         </div>
+    {{-- / {!! Form::close() !!} --}}
         @endforeach
       </div>
       <div class="paginateCatalog">

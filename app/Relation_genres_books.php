@@ -4,17 +4,12 @@ namespace IUTLib;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Book extends Model
+class Relation_genres_books extends Model
 {
-   	// Table Name
-    protected $table = 'books';
+    protected $table = 'relation_between_genres_books';
     // Primary Key
     public $primaryKey = 'id';
     // Timestamps
     public $timestamps = true;
 
-    public function genres()
-    {
-    	return $this->hasMany('App\Genre');
-    }
 }

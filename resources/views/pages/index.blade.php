@@ -10,7 +10,7 @@
 				    <div class="owl-carousel">
 							@foreach($pbooks as $pbook)
 						  	<div class="item">
-						  		<a href=""><h4>{{$pbook->bookName}}</h4></a>
+						  		<a href="/bookDetail/{{$pbook->id}}"><h4>{{$pbook->bookName}}</h4></a>
 						   		<img src="/storage/cover_images/{{$pbook->cover_image}}" alt="{{$pbook->bookName}}">
 						  	</div>
 					  	@endforeach
@@ -29,7 +29,7 @@
 	      	<div class="col-md-6">
 	      	  <div class="about">
 	      		<h1>What is IUT-LMS?</h1>
-	      		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste ipsum, labore, vero beatae fuga quos eveniet dolorum optio aut, expedita aliquid cum. Animi rerum facilis, amet sit fugit ipsa reiciendis?</p>
+	      		<p>Inha University in Tashkent has been established according to the resolution of the President of the Republic of Uzbekistan as a result of the cooperation between Inha University of Korea and the government of Uzbekistan with the goal of developing professional, practical, and globally competitive IT leaders. Inha University in Korea is a distinctive leader in higher education for engineering, IT, management, logistics, and Korean studies, among others. </p>
 	      	  </div>
 	      	</div>
 	      	<div class="col-md-6">
@@ -44,7 +44,7 @@
     	  		@foreach($rbooks as $rbook)
 		    	  <div class="col-md-3">
 		    	  	<img src="/storage/cover_images/{{ $rbook->cover_image }}" alt="{{ $rbook->bookName }}">
-		    	  	<a href="#"><h2>{{ $rbook->bookName }}</h2></a>
+		    	  	<a href="/bookDetail/{{$rbook->id}}"><h2>{{ $rbook->bookName }}</h2></a>
 		    	  </div>
 		    		@endforeach
 		  	 </div>

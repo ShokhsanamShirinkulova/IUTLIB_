@@ -5,6 +5,7 @@ namespace IUTLib\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use IUTLib\Book;
+use IUTLib\Relation_genres_books;
 
 class BooksController extends Controller
 {
@@ -58,11 +59,11 @@ class BooksController extends Controller
             'bookType' => 'required|string',
             'publishedYear' => 'required|date|after:' . date('1988-01-01'),
             'bookRank' => 'required|between:0,99.99',
-            /*'describtion'=>'required|string|min:255',*/
+            'describtion'=>'required|string',
             'isbn'=>'required|integer',
             'country'=>'required|string',
             'language'=>'required|string|nullable',
-            'genre'=>'required|string|nullable',
+           /* 'genre'=>'required|string|nullable',*/
             'attachedFile' => 'required|file|nullable',
             'cover_image' => 'required|image|mimes:jpg,jpeg,bmp,png|max:1999'
         ]);
@@ -96,11 +97,11 @@ class BooksController extends Controller
         $book->bookType = $request->input('bookType');
         $book->publishedYear = $request->input('publishedYear');
         $book->bookRank = $request->input('bookRank');
-        /*$book->describtion = $request->input('describtion');*/
+        $book->describtion = $request->input('describtion');
         $book->isbn = $request->input('isbn');
         $book->country = $request->input('country');
         $book->language = $request->input('language');       
-        $book->genre = $request->input('genre');       
+        /*$book->genre = $request->input('genre');       */
         $book->cover_image = $imageNameStore;
         $book->attachedFile = $fileNameStore;
         $book->save(); 
@@ -156,11 +157,11 @@ class BooksController extends Controller
             'bookType' => 'required|string',
             'publishedYear' => 'required|date|after:' . date('1988-01-01'),
             'bookRank' => 'required|between:0,99.99',
-            /*'describtion'=>'required|string|min:255',*/
+            'describtion'=>'required|string',
             'isbn'=>'required|integer',
             'country'=>'required|string',
             'language'=>'required|string|nullable',
-            'genre'=>'required|string|nullable',
+           /* 'genre'=>'required|string|nullable',*/
             'attachedFile' => 'required|file|nullable',
             'cover_image' => 'image|nullable|max:1999'
         ]);
@@ -175,7 +176,7 @@ class BooksController extends Controller
         }
 
         if ($request->hasFile('attachedFile')) {
-            Storage::delete('public/attached_files/'.$book->attachedFile);
+            //Storage::delete('public/attached_files/'.$book->attachedFile);
           $fileNameWithExt=$request->file('attachedFile')->getClientOriginalName();
           $fileName=pathinfo($fileNameWithExt, PATHINFO_FILENAME);
           $extension=$request->file('attachedFile')->getClientOriginalExtension();
@@ -188,11 +189,11 @@ class BooksController extends Controller
         $book->bookAuthor = $request->input('bookAuthor');
         $book->bookType = $request->input('bookType');
         $book->publishedYear = $request->input('publishedYear');
-       /* $book->describtion = $request->input('describtion');*/
+        $book->describtion = $request->input('describtion');
         $book->isbn = $request->input('isbn');
         $book->country = $request->input('country');
         $book->language = $request->input('language'); 
-        $book->genre = $request->input('genre'); 
+        /*$book->genre = $request->input('genre'); */
         if ($request->hasFile('cover_image')) {
           $book->cover_image = $imageNameStore;  
         }

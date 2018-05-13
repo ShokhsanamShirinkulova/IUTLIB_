@@ -14,7 +14,7 @@ class AddIsbnToBook extends Migration
     public function up()
     {
         Schema::table('books',function($table){
-            $table->integer('isbn');
+            $table->integer('isbn',13);
         });
     }
 

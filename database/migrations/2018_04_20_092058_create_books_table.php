@@ -20,7 +20,7 @@ class CreateBooksTable extends Migration
             $table->string('bookName');
             $table->string('bookAuthor');
             $table->date('publishedYear');
-            $table->float('bookRank',3,2);
+            $table->integer('bookRank');
             $table->string('attachedFile');
             $table->string('cover_image');
             $table->timestamps();

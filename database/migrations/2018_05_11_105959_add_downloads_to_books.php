@@ -14,7 +14,7 @@ class AddDownloadsToBooks extends Migration
     public function up()
     {
           Schema::table('books', function($table) {
-            $table->integer('downloads');
+            $table->integer('downloads')->nullable();
         });
     }
 

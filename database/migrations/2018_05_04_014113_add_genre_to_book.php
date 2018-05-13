@@ -14,7 +14,7 @@ class AddGenreToBook extends Migration
     public function up()
     {
         Schema::table('books', function($table) {
-            $table->string('genre');
+            $table->string('genre')->nullable();
         });
     }
 

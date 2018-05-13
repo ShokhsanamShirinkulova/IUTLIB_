@@ -14,7 +14,7 @@ class AddSemesterToBooks extends Migration
     public function up()
     {
         Schema::table('books', function($table) {
-            $table->integer('semester');
+            $table->integer('semester')->nullable();
         });
     }
 

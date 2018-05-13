@@ -60,7 +60,7 @@ class BooksController extends Controller
             'publishedYear' => 'required|date|after:' . date('1988-01-01'),
             'bookRank' => 'required|between:0,99.99',
             'describtion'=>'required|string',
-            'isbn'=>'required|integer|digits_between:13,13',
+            'isbn'=>'required|integer',
             'country'=>'required|string',
             'language'=>'required|string|nullable',
            /* 'genre'=>'required|string|nullable',*/

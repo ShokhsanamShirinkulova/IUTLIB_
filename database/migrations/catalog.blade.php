@@ -48,6 +48,13 @@
         </div>
       </div>
       <!-- end sorting box -->
+                          <?php
+                            function count_pages($pdfname) {
+                              $pdftext = file_get_contents('./storage/attached_files/'.$pdfname);
+                              $num = preg_match_all("/\/Page\W/", $pdftext, $dummy);
+                              return $num;
+                            }
+                          ?>
       <!-- book items -->
       <div class="container-fluid">
        @foreach($books as $book)
@@ -100,11 +107,11 @@
                               </div>
                             </div>
                           </h5>
-                          <h5>Genre: <a href="#">{{$book->genre}}</a></h5>
+                        
                           <h5>Country: {{$book->country}}</h5>
                           <h5>Language: {{$book->language}}</h5>
                           <h5>Published: {{$book->publishedYear}}</h5>
-                          <h5>Pages: </h5>
+                          <h5>Pages: {{ count_pages($book->attachedFile) }}</h5>
                           <h5>ISBN: {{$book->isbn}}</h5>
                         </div>
                         <div class="row">

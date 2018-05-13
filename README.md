@@ -13,11 +13,15 @@ Team Members:
 
 
 
-- Rakhmatjon Khasanov			U1610183
-	 Sardor Allabergenov				U1610202
-	 Shokhsanam Shirinkulova 		U1610231
-	 Madina Kurbanova				U1610127
-	 Madinakhon Raufova				U1610130
+- Rakhmatjon Khasanov		U1610183
+
+- Sardor Allabergenov			U1610202
+
+- Shokhsanam Shirinkulova 		U1610231
+
+- Madina Kurbanova			U1610127
+
+- Madinakhon Raufova			U1610130
 
   ​
 
@@ -36,16 +40,18 @@ Tasks, we can't manage to finish on time:
 
 - Main function of library, like giving a book to users and returning back a book to library
 
-	 Other stuffs like full validation from back-end and front-end, but any way we did validations that we manage to finish before deadline, but anyway I tried to did the most of the exceptions and validations.	
+- Other stuffs like full validation from back-end and front-end, but any way we did validations that we manage to finish before deadline		
 
-   ​					
+  ​					
 
-------
+  ------
 
   ​							
 
   ​								this is a little readme done by **Rakhmatjon Khasanov** (*U1610183*)
 
-  ​					
+  ​
 
-------
+  - - - - - - - - - - - - - - - - - - - - - - - - ~~
+
+                                                  ​

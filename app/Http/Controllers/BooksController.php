@@ -127,9 +127,9 @@ class BooksController extends Controller
      */
     public function edit($id)
     {
-        $book = Book::findOrFail($id);
+        $book = Book::find($id);
          // Check for correct user id
-        if (auth()->user()->userType != 2 && auth()->user()->id != $member->id) {
+        if (empty($book) || (auth()->user()->userType != 2 && auth()->user()->id != $member->id)) {
             return redirect('/pagenotfound');
         }
         return view('books.edit')->with('book', $book);
@@ -144,10 +144,10 @@ class BooksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if (auth()->user()->userType != 2) {
+        $book = Book::find($id);
+        if (empty($book) || auth()->user()->userType != 2) {
             return redirect('/pagenotfound');
         }
-        $book = Book::findOrFail($id);
         $this->validate($request,[
             'bookID' => 'required|' .(($book->bookID == $request->input('bookID')) ? '':'unique:books|').'digits_between:6,6',
             'bookName' => 'required|string|max:255',
@@ -210,11 +210,11 @@ class BooksController extends Controller
      */
     public function destroy($id)
     {
-        $book = Book::findOrFail($id);
+        $book = Book::find($id);
 
         // Check for correct user id
-        if (auth()->user()->userType != 2) {
-            return redirect('/home')->with('error', 'Unauthorized Page');
+        if (empty($book) || auth()->user()->userType != 2) {
+            return redirect('/pagenotfound');
         }
         Storage::delete('public/cover_images/'.$book->cover_image);
         Storage::delete('public/attached_files/'.$book->attachedFile);

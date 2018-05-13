@@ -36,13 +36,17 @@
 }
 .ratingBlock{
 	position: relative;
-	left: 30%;
+	left: 84%;
 	transform: translateX(-50%);
 }
 .ratingBlock h5{
-	text-align: center;
+	text-align: left;
+	transform: translateX(-80%);
 }
 .bookDetail{
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
 	text-align: center;
 	margin-top: 10px;
 }
@@ -106,6 +110,11 @@ label.star:before {
 	left: 50%;
 	transform: translateX(-50%);
 }
+.right-block{
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
 .bookDetailMain,.bookDetailCommentBlock{
 	background: #fff;
 	border-radius: 4px;
@@ -142,7 +151,7 @@ label.star:before {
 	transform: translateX(-50%);
 }
 .book-img{
-	width: 70%;
+	width: 100%;
 }
   </style>
 
@@ -157,8 +166,8 @@ label.star:before {
 			  				</div>
 			  				<div class="col-md-5 col-sm-5">
 			  					<div class="bookDetail">
-				  					<h5 class="bookDetailName"> {{$book->bookName}}</h5>
-				  					<h5> {{$book->bookAuthor}}</h5>
+				  					<h3 class="bookDetailName"> {{$book->bookName}}</h3>
+				  					<h4> {{$book->bookAuthor}}</h4>
 				  					<p>Genre:</p>
 				  					<p><a href="">Fantasy </a>, <a href="">Romance</a></p><br>
 				  					@if(!empty($book->attachedFile))
@@ -169,7 +178,7 @@ label.star:before {
 			  					</div>
 			  				</div>
 			  				<div class="col-md-3 col-sm-3">
-			  					<div class="container-fluid">
+			  					<div class="container-fluid right-block">
 				  					<div class="row">
 					  					<div class="ratingBlock">
 					  							<h5>Rate book:</h5>
@@ -189,16 +198,15 @@ label.star:before {
 					  						</div>
 					  					</div>
 				  					</div>
-				  					<div class="row">
-				  						<div class="bookDetailInfo">
-				  							<?php
+				  					<?php
 												function count_pages($pdfname) {
 												  $pdftext = file_get_contents('./storage/attached_files/'.$pdfname);
 												  $num = preg_match_all("/\/Page\W/", $pdftext, $dummy);
 												  return $num;
 												}
 											?>
-												
+				  					<div class="row">
+				  						<div class="bookDetailInfo">
 							                  <h5>Country: {{$book->country}}</h5>
 							                  <h5>Language: {{$book->language}}</h5>
 							                  <h5>Published: {{$book->publishedYear}}</h5>
@@ -229,20 +237,19 @@ label.star:before {
 						</div>
 						<br>
 						<div class="bookDetailCommentBlock">
-							@guest
-							
-							@else
-								<h4>Leave a Comment: </h4><hr>
-								<div class="row">
-									<form class="col-md-12" action="/comments" method="POST">
-										{{ csrf_field() }}
-										<textarea name="body" cols="10" rows="3" placeholder="comments:"></textarea>
-										<input type="hidden" name="book_id" value="{{ $book->id }}">
-										<input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-											<input class="btn btn-primary" type="submit" value="Send">
-									</forms>
-								</div>
-							@endif
+						@guest
+						@else
+							<h4>Leave a Comment: </h4><hr>
+							<div class="row">
+								<form class="col-md-12" action="/comments" method="POST">
+									{{ csrf_field() }}
+									<textarea name="body" cols="10" rows="3" placeholder="comments:"></textarea>
+									<input type="hidden" name="book_id" value="{{ $book->id }}">
+									<input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+										<input class="btn btn-primary" type="submit" value="Send">
+								</forms>
+							</div>
+						@endif
 							<br>
 							<div class="row">
 								<div class="col-md-12">
@@ -253,9 +260,10 @@ label.star:before {
 												<h4><span>{{ $comment->user->firstName . ' ' . $comment->user->lastName }}</span> <span>| {{ $comment->created_at }}</span></h4>
 												<h5>{{ $comment->body }}</h5>
 												@guest
-
-												@elseif(auth()->user()->id == $comment->user->id)
-													<a href="/comments/{{ $comment->id }}/delete" class="btn btn-danger">Delete</a>
+												@else
+													@if(auth()->user()->id == $comment->user->id)
+														<a href="/comments/{{ $comment->id }}/delete" class="btn btn-danger">Delete</a>
+													@endif
 												@endif
 											</div>
 											<hr>

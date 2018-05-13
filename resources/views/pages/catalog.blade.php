@@ -118,7 +118,7 @@
                         <div class="row">
                           <div class="bottom-bar">
                             <div class="tooltip">
-                              <i class="fas fa-download"></i> {{ $book->downloads/8 }}
+                              <i class="fas fa-download"></i> {{ $book->downloads }}
                               <span class="tooltiptext">Number of downloads</span>
                             </div>
                             <div class="tooltip">

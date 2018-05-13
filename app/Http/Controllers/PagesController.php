@@ -36,7 +36,9 @@ class PagesController extends Controller
 
     public function bookDescription($id)
     {
-        $book = Book::findOrFail($id);
+        $book = Book::find($id);
+        if(empty($book))
+            return redirect('/pagenotfound');
         $rbook = Book::orderBy('created_at', 'desc')->take(1)->get();
         $pbook = Book::where('bookRank', '>', 2.5)->take(1)->get();
         if(!empty($rbook))
@@ -53,9 +55,9 @@ class PagesController extends Controller
 
     public function bookDownload($id)
     {
-        $book = Book::findOrFail($id);
+        $book = Book::find($id);
         // if(Response::download()){
-        if(empty($book->attachedFile) || file_exists(public_path('attached_files/'.$book->attachedFile)))
+        if(empty($book) || empty($book->attachedFile) || file_exists(public_path('attached_files/'.$book->attachedFile)))
             return redirect("/bookDetail/".$id)->with("error","There is No Such File");
             $book->downloads++;
             $book->update();    

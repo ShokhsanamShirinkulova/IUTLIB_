@@ -94,15 +94,15 @@ class MembersController extends Controller
      */
     public function edit($id)
     {
+        $member = Member::find($id);
+        if (empty($member) || (auth()->user()->userType != 2 && auth()->user()->id != $member->id)) {
+            return redirect('/pagenotfound');
+        }
         $this->validate(
             [$id => 'required|integer']);
 
-        $member = Member::findOrFail($id);
 
         // Check fo correct user id
-        if (is_null($member) || (auth()->user()->userType != 2 && auth()->user()->id != $member->id)) {
-            return redirect('/pagenotfound');
-        }
         return view('members.edit')->with('member', $member);
     }
 
@@ -115,10 +115,10 @@ class MembersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if (auth()->user()->userType != 2 && auth()->user()->id != $member->id) {
+        $member = Member::find($id);
+        if (empty($member) || (auth()->user()->userType != 2 && auth()->user()->id != $member->id)) {
             return redirect('/pagenotfound');
         }
-        $member = Member::findOrFail($id);
         $this->validate($request,[
             'userID' => 'required|string'.($member->userID == $request->input('userID')? '':'|unique:users'),
             'firstName' => 'required|string|max:255',
@@ -152,10 +152,10 @@ class MembersController extends Controller
      */
     public function destroy($id)
     {
-        $member = Member::findOrFail($id);
+        $member = Member::find($id);
 
         // Check fo correct user id
-        if (auth()->user()->userType != 2 && auth()->user()->id != $member->id) {
+        if (empty($member) || (auth()->user()->userType != 2 && auth()->user()->id != $member->id)) {
             return redirect('/pagenotfound');
         }
         $member->delete();
